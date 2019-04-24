@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NzIconService } from 'ng-zorro-antd';
 declare var BMap: any;
+declare var require: any;
 @Component({
   selector: 'app-hi',
   templateUrl: './hi.component.html',
@@ -7,7 +9,11 @@ declare var BMap: any;
 })
 export class HiComponent implements OnInit {
   echarts: any;
-  constructor() { }
+  constructor(private _iconService: NzIconService) {
+    this._iconService.fetchFromIconfont({
+      scriptUrl: 'https://at.alicdn.com/t/font_579782_amgggiy31pr.js'
+    });
+  }
 
   ngOnInit() {
     this.echarts = require('echarts');
