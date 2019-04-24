@@ -21,10 +21,14 @@
 
 
 ```ts
-设置认证信息
+
 constructor( @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService) {
+    // 设置认证信息
     tokenService.set({token:'token'})
+    // 获取认证信息
     tokenService.get().token; // token
+    // 清除认证信息
+    tokenService.clear()
 }
 ```
 
