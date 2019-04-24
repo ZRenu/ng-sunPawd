@@ -1,4 +1,4 @@
-# 鹿途后台管理系统基础框架（更新中）
+# 鹿途后台管理系统基础框架
 
 [鹿途](https://github.com/ZhouRenYou/ng-deerway)
 
