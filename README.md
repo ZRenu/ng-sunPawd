@@ -1,28 +1,32 @@
-# NgProject
+# 鹿途后台管理系统基础框架
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+[鹿途](https://github.com/ZhouRenYou/ng-deerway)
 
-## Development server
+##  项目说明
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+项目是一个干净可移植的基础框架，即开即用。
 
-## Code scaffolding
+## 版本说明
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```ts
+"@delon/acl": "^1.5.1",
+"@delon/auth": "^1.5.1",
+"@delon/theme": "^1.5.1",
+"ng-zorro-antd": "^1.8.1"
+```
 
-## Build
+### 用户认证
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+[@delon/auth](https://ng-alain.com/auth/getting-started)
 
-## Running unit tests
+### 权限控制
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[@delon/acl](https://ng-alain.com/acl/getting-started/zh)
 
-## Running end-to-end tests
+## 第三方资源
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+图标：[iconfont](http://iconfont.cn)
 
-## Further help
+地图：[angular-baidu-maps](https://github.com/cipchk/angular-baidu-maps)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# ng-project
+图表：[echarts](http://echarts.baidu.com/index.html)
