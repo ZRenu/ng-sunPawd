@@ -32,10 +32,6 @@ constructor( @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService) {
 }
 ```
 
-### 权限控制
-
-[@delon/acl](https://ng-alain.com/acl/getting-started/zh)
-
 ## 第三方资源
 
 图标：[iconfont](http://iconfont.cn)
