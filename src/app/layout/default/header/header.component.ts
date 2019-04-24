@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, fromEvent } from 'rxjs';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { ApiService } from 'src/app/core/api/api.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   isCollapsed = false;
   @Output() nzCollapsed = new EventEmitter<void>();
   constructor(
-    private router: Router,
+    private api: ApiService
   ) {
   }
 
@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
     this.nzCollapsed.emit();
   }
   logout() {
-    // this.tokenService.clear();
-    this.router.navigateByUrl('passport/login');
+    this.api.logoOut();
   }
 }

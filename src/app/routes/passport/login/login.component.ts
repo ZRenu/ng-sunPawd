@@ -31,26 +31,40 @@ export class LoginComponent implements OnInit {
     });
   }
   submitForm() {
-    const loginParams = {
-      userCode: this.userName.value,
-      password: this.password.value,
-    };
+    // const loginParams = {
+    //   userCode: this.userName.value,
+    //   password: this.password.value,
+    // };
     if (this.form.valid) {
-      this.api.login(loginParams)
-        .subscribe(res => {
-          const data = res.data;
-            // 设置Token信息
-            this.tokenService.set({
-              token: data.token,
-              loginIP: data.loginIP,
-              userId: data.userId,
-              loginCode: data.loginCode,
-              type: 'login',
-              time: +new Date(),
-            }
-            );
-            this.router.navigateByUrl('default');
+      // author
+      if (this.userName.value === 'admin' && this.password.value === '12345678') {
+        this.tokenService.set({
+          token: 'admin',
+          loginIP: '192.168.1.68',
+          userId: '12',
+          loginCode: 'admin',
+          type: 'login',
+          time: +new Date(),
+          author: 'admin'
         });
+        this.router.navigateByUrl('default');
+      }
+
+      // this.api.login(loginParams)
+      //   .subscribe(res => {
+      //     const data = res.data;
+      //       // 设置Token信息
+      //       this.tokenService.set({
+      //         token: data.token,
+      //         loginIP: data.loginIP,
+      //         userId: data.userId,
+      //         loginCode: data.loginCode,
+      //         type: 'login',
+      //         time: +new Date(),
+      //       }
+      //       );
+      //       this.router.navigateByUrl('default');
+      //   });
     }
   }
   get userName() { return this.form.controls.userName; }
