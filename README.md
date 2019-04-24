@@ -30,3 +30,7 @@
 地图：[angular-baidu-maps](https://github.com/cipchk/angular-baidu-maps)
 
 图表：[echarts](http://echarts.baidu.com/index.html)
+
+## 非重要说明
+
+如果你觉得方便，就我给我一个小星星吧😊
