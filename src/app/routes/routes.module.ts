@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { RouteRoutingModule } from './rourtes-routing.module';
+import { RouteRoutingModule } from './routes-routing.module';
 import { LoginComponent } from './passport/login/login.component';
 
 
@@ -11,4 +11,4 @@ import { LoginComponent } from './passport/login/login.component';
   ],
   declarations: [LoginComponent]
 })
-export class RourtesModule { }
+export class RoutesModule { }

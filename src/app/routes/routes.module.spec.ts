@@ -1,10 +1,10 @@
-import { RourtesModule } from './rourtes.module';
+import { RoutesModule } from './routes.module';
 
 describe('RourtesModule', () => {
-  let rourtesModule: RourtesModule;
+  let rourtesModule: RoutesModule;
 
   beforeEach(() => {
-    rourtesModule = new RourtesModule();
+    rourtesModule = new RoutesModule();
   });
 
   it('should create an instance', () => {
