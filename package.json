@@ -24,6 +24,7 @@
     "@delon/auth": "^1.5.1",
     "@delon/theme": "^1.5.1",
     "core-js": "^2.5.4",
+    "echarts": "^4.2.1",
     "ng-zorro-antd": "^1.8.1",
     "rxjs": "6.0.0",
     "zone.js": "~0.8.26"
