@@ -36,7 +36,7 @@ constructor( @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService) {
 
 图标：[iconfont](http://iconfont.cn)
 
-地图：[angular-baidu-maps](https://github.com/cipchk/angular-baidu-maps)
+地图：[baidumaps](http://lbsyun.baidu.com/)
 
 图表：[echarts](http://echarts.baidu.com/index.html)
 
