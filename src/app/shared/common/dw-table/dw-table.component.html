@@ -20,7 +20,7 @@
         <nz-switch [ngModel]="data[tableDatas?.switchName]" nzCheckedChildren="开" nzUnCheckedChildren="关"
           (ngModelChange)="changeSwitch(data)"></nz-switch>
       </td>
-      <td>
+      <td *ngIf="tableDatas?.operate" >
         <button nz-button nzType="primary" nzGhost (click)="edit(data)">编辑</button>
         <nz-divider nzType="vertical"></nz-divider>
         <button nz-button nzType="danger" nzGhost nz-popconfirm nzTitle="确认删除吗?" (nzOnConfirm)="confirm(data)"

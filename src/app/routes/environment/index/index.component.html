@@ -1,3 +1,18 @@
-<p>
-  index works!
-</p>
+<div class="animated fadeInRight faster">
+  <app-dw-btns [btnsData]="btnsData" (activeData)="active($event,'btn')"></app-dw-btns>
+</div>
+<div *ngIf="btnsData.active === 0" id="an" class="animated fadeInRight fast">
+  <div class="actual-chats">
+    <app-dw-btns [btnsData]="btnsDataCharts" (activeData)="active($event,'chat')"></app-dw-btns>
+    <nz-select style="width: 120px;" [compareWith]="compareFn" [(ngModel)]="selectedValue" (ngModelChange)="log($event)"
+      nzPlaceHolder="选择牧场">
+      <nz-option *ngFor="let option of optionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+    </nz-select>
+  </div>
+  <div class="animated fadeInRight">
+    <app-charts></app-charts>
+  </div>
+</div>
+<div *ngIf="btnsData.active === 1" class="animated fadeInRight fast">
+  <app-table></app-table>
+</div>

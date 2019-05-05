@@ -87,6 +87,7 @@ export class DwTableComponent implements OnInit, OnChanges {
  * pagination：是否开启分页
  * pageSize：每页数据
  * pageIndex：当前页
+ * operate:是否开始操作
  */
 export interface DwTable {
   itemLength?: number;
@@ -106,4 +107,5 @@ export interface DwTable {
   pagination?: boolean;
   pageSize?: number;
   pageIndex?: number;
+  operate?: boolean;
 }
