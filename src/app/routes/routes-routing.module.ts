@@ -14,6 +14,15 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'welcome', pathMatch: 'full' },
             { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomeModule' },
+            { path: 'actual', loadChildren: './actual/actual.module#ActualModule' },
+            { path: 'alarm-log', loadChildren: './alarm-log/alarm-log.module#AlarmLogModule' },
+            { path: 'dictionary-mmt', loadChildren: './dictionary-mmt/dictionary-mmt.module#DictionaryMmtModule' },
+            { path: 'environment', loadChildren: './environment/environment.module#EnvironmentModule' },
+            { path: 'equ-data', loadChildren: './equ-data/equ-data.module#EquDataModule' },
+            { path: 'equ-info', loadChildren: './equ-info/equ-info.module#EquInfoModule' },
+            { path: 'system-mmt', loadChildren: './system-mmt/system-mmt.module#SystemMmtModule' }
+
+
         ],
         canActivate: [AuthGuardService]
     },

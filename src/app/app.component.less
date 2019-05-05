@@ -1,5 +1,66 @@
 :host ::ng-deep .ant-layout-sider {
-    margin-top: 64px;
-    position: fixed;
-    height: 100%;
+  margin-top: 64px;
+  position: fixed;
+  height: 100%;
+}
+
+/**input*/
+:host ::ng-deep .ant-btn-primary {
+  background-color: rgba(24, 189, 177, 1);
+  border-color: rgba(24, 189, 177, 1);
+}
+
+:host ::ng-deep .ant-input {
+  color: #18bdb1;
+}
+
+:host ::ng-deep .ant-input:focus {
+  box-shadow: 0 0 5px #18bdb1;
+  border: 1px solid #18bdb1;
+}
+
+:host ::ng-deep .ant-input:hover {
+  box-shadow: 0 0 5px #18bdb1;
+  border: 1px solid #18bdb1 !important;
+}
+
+/*layout菜单*/
+:host ::ng-deep .ant-menu-inline .ant-menu-item:after,
+.ant-menu-vertical .ant-menu-item:after,
+.ant-menu-vertical-left .ant-menu-item:after,
+.ant-menu-vertical-right .ant-menu-item:after {
+  border-right: 3px solid #18bdb1;
+}
+
+:host ::ng-deep .ant-menu-item-active,
+:host ::ng-deep .ant-menu-item-selected,
+:host ::ng-deep .ant-menu-item-selected>a,
+:host ::ng-deep .ant-menu-item-selected>a:hover,
+:host ::ng-deep .ant-menu-item:hover,
+:host ::ng-deep .ant-menu-item>a:hover,
+:host ::ng-deep .ant-menu-submenu-active,
+:host ::ng-deep .ant-menu-submenu-title:hover,
+:host ::ng-deep .ant-menu-vertical .ant-menu-submenu-selected,
+:host ::ng-deep .ant-menu-vertical .ant-menu-submenu-selected>a,
+:host ::ng-deep .ant-menu-vertical-left .ant-menu-submenu-selected,
+:host ::ng-deep .ant-menu-vertical-left .ant-menu-submenu-selected>a,
+:host ::ng-deep .ant-menu-vertical-right .ant-menu-submenu-selected,
+:host ::ng-deep .ant-menu-vertical-right .ant-menu-submenu-selected>a,
+:host ::ng-deep .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open {
+  color: #18bdb1;
+}
+
+:host ::ng-deep .ant-menu-submenu-inline>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+:host ::ng-deep .ant-menu-submenu-inline>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+:host ::ng-deep .ant-menu-submenu-vertical-left>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+:host ::ng-deep .ant-menu-submenu-vertical-left>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+:host ::ng-deep .ant-menu-submenu-vertical-right>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+:host ::ng-deep .ant-menu-submenu-vertical-right>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+:host ::ng-deep .ant-menu-submenu-vertical>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+:host ::ng-deep .ant-menu-submenu-vertical>.ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before {
+  background: linear-gradient(to right, #18bdb1, #18bdb1);
+}
+
+:host ::ng-deep .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #18bdb11a;
 }
