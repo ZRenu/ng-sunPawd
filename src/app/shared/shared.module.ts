@@ -8,6 +8,7 @@ import { DwSearchComponent } from './common/dw-search/dw-search.component';
 import { DwDatePickerComponent } from './common/dw-date-picker/dw-date-picker.component';
 import { DwPaginationComponent } from './common/dw-pagination/dw-pagination.component';
 import { DwModelComponent } from './common/dw-model/dw-model.component';
+import { DwBtnsComponent } from './common/dw-btns/dw-btns.component';
 
 const SHAREDS = [
   CommonModule,
@@ -21,7 +22,8 @@ const COMPONENTS = [
   DwSearchComponent,
   DwDatePickerComponent,
   DwPaginationComponent,
-  DwModelComponent
+  DwModelComponent,
+  DwBtnsComponent
 ]
 @NgModule({
   imports: [
