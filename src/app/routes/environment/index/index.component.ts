@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Btns } from 'src/app/shared/common/dw-btns/dw-btns.component';
+import { DatePicker } from 'src/app/shared/common/dw-date-picker/dw-date-picker.component';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.less']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, AfterViewInit {
 
   constructor() { }
   btnsData: Btns = {
@@ -25,6 +26,14 @@ export class IndexComponent implements OnInit {
     ],
     active: 0,
     size: 'small'
+  };
+  datePicker: DatePicker = {
+    nzSize: 'default',
+    startPlaceHolder: '开始时间',
+    endtPlaceHolder: '结束时间',
+    ShowToday: false,
+    Format: 'yyyy-MM-dd'
+
   };
   optionList = [
     { label: '选择牧场', value: '选择牧场' },
@@ -47,5 +56,22 @@ export class IndexComponent implements OnInit {
   }
   log(value: { label: string, value: string, age: number }): void {
     console.log(value);
+  }
+  /**开始时间 */
+  launchStart($event: any) {
+    console.log('start', $event);
+  }
+  /**结束时间 */
+  launchEnd($event: any) {
+    console.log('end', $event);
+  }
+  ngAfterViewInit(): void {
+    console.log('----------');
+    this.chartWidth();
+  }
+  /**图表宽度 */
+  chartWidth() {
+    const dom = document.getElementById('widthChart');
+    console.log('dom', dom.clientWidth);
   }
 }

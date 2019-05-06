@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-dw-pagination',
@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class DwPaginationComponent implements OnInit {
 
   constructor() { }
-
+  @Input() tableDatas: { pageIndex: number; };
+  @Output() pageIndex = new EventEmitter<number>();
+  currentPage = 1;
   ngOnInit() {
+    this.currentPage = this.tableDatas.pageIndex;
   }
-
+  refreshStatus() {
+    this.pageIndex.emit(this.currentPage);
+  }
 }

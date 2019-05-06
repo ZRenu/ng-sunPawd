@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
 import { SharedModule } from './shared/shared.module';
 import { RoutesModule } from './routes/routes.module';
 import { LayoutModule } from './layout/layout.module';
@@ -14,7 +13,8 @@ import { ApiService, API_URL } from './core/api/api.service';
 import { environment } from 'src/environments/environment';
 import { DelonAuthModule, SimpleInterceptor } from '@delon/auth';
 import { DelonACLModule } from '@delon/acl';
-registerLocaleData(en);
+import zh from '@angular/common/locales/zh';
+registerLocaleData(zh);
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ registerLocaleData(en);
   providers: [
     ApiService,
     { provide: API_URL, useValue: environment.urlPrefix },
-    { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

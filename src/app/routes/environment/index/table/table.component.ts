@@ -11,7 +11,7 @@ export class TableComponent implements OnInit {
   constructor() { }
   tableDatas: DwTable = {
     loading: false,
-    bordered: true,
+    bordered: false,
     itemLength: 0,
     size: 'default',
     pagination: true,
@@ -21,19 +21,16 @@ export class TableComponent implements OnInit {
     operate: false,
     dataTh: [
       {
-        title: '序号',
+        title: '牧场名称',
       },
       {
-        title: '姓名',
+        title: '监测项',
       },
       {
-        title: '年龄',
+        title: '监测值',
       },
       {
-        title: '编号'
-      },
-      {
-        title: '地址',
+        title: '发生时间'
       }
     ],
     tdItem: [
@@ -41,7 +38,6 @@ export class TableComponent implements OnInit {
       { name: 'name' },
       { name: 'age' },
       { name: 'number' },
-      { name: 'address' },
     ],
     dataSet: []
   }
@@ -102,5 +98,9 @@ export class TableComponent implements OnInit {
     this.tableDatas.itemLength = dataSet.length;
     this.tableDatas.dataSet = dataSet;
     this.tableDatas.total = dataSet.length;
+  }
+  /**分页 */
+  pageIndex(e: number) {
+    console.log(e);
   }
 }

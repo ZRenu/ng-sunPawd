@@ -27,6 +27,7 @@
     "core-js": "^2.5.4",
     "echarts": "^4.2.1",
     "ng-zorro-antd": "^1.8.1",
+    "ngx-echarts": "^4.1.1",
     "rxjs": "6.0.0",
     "zone.js": "~0.8.26"
   },
