@@ -12,7 +12,7 @@ const routes: Routes = [
         path: 'default',
         component: DefaultComponent,
         children: [
-            { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+            { path: '', redirectTo: 'actual', pathMatch: 'full' },
             { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomeModule' },
             { path: 'actual', loadChildren: './actual/actual.module#ActualModule' },
             { path: 'alarm-log', loadChildren: './alarm-log/alarm-log.module#AlarmLogModule' },

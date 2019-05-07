@@ -29,6 +29,7 @@
     "ng-zorro-antd": "^1.8.1",
     "ngx-echarts": "^4.1.1",
     "rxjs": "6.0.0",
+    "seamscroll": "0.0.12",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
