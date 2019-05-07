@@ -16,6 +16,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.seamless = require('seamscroll');
     this.notice();
+
   }
   notice() {
     for (let index = 0; index < 5; index++) {
@@ -32,6 +33,20 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
   tag(i: number) {
     this.tabsActive = i;
+    const element = document.querySelector('.main-wrap');
+    element.classList.forEach(e => {
+      if (e === 'fadeInRight') {
+        element.classList.replace('fadeInRight', 'bounceInRight');
+      }
+      if (e === 'bounceInRight') {
+        element.classList.replace('bounceInRight', 'fadeInRight');
+      }
+
+    });
+  }
+  an() {
+    const element = document.querySelector('.main-wrap');
+    element.classList.add('fadeInRight');
   }
   ngAfterViewInit(): void {
     this.start();

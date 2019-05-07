@@ -1,11 +1,11 @@
-<div class="notice">
+<div class="animated fadeInRight faster notice">
   <ul class="list2 clearfix" id="notice">
     <li class="clearfix" *ngFor="let item of noticeData">
       <span>{{item.title}}</span>
     </li>
   </ul>
 </div>
-<div class="tip">
+<div class="animated fadeInRight fast tip">
   <div class="tip-item">
     <div class="tip-icon">
       <i nz-icon type="pie-chart" theme="outline" style="color:#00a1e4"></i>
@@ -43,11 +43,11 @@
     </div>
   </div>
 </div>
-<div class="main">
+<div class="animated fadeInRight main">
   <div class="main-tabs">
     <a *ngFor="let item of tabs;let i = index" [ngClass]="{'main-tabs-active': tabsActive === i}" (click)="tag(i)"></a>
   </div>
-  <div class="main-wrap">
+  <div class="main-wrap animated fadeInRight">
     <div class="main-wrap-left">
       <div class="main-map">
         <app-map></app-map>
