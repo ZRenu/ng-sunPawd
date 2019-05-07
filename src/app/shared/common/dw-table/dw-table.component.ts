@@ -16,6 +16,14 @@ export class DwTableComponent implements OnInit, OnChanges {
   @Output() switch = new EventEmitter<object>();
   @Output() delete = new EventEmitter<object>();
   @Output() editData = new EventEmitter<object>();
+  @Output() infoData = new EventEmitter<object>();
+  @Output() warningData = new EventEmitter<object>();
+  @Output() meadowData = new EventEmitter<object>();
+  @Output() userData = new EventEmitter<object>();
+  @Output() authorityData = new EventEmitter<object>();
+  @Output() updateAuthorityData = new EventEmitter<object>();
+  @Output() passwordData = new EventEmitter<object>();
+  @Output() empowerData = new EventEmitter<object>();
   @Output() page = new EventEmitter<number>();
   ngOnInit() {
   }
@@ -62,6 +70,30 @@ export class DwTableComponent implements OnInit, OnChanges {
   confirm(e) {
     this.delete.emit(e);
   }
+  info(e) {
+    this.infoData.emit(e);
+  }
+  warning(e) {
+    this.warningData.emit(e);
+  }
+  meadow(e) {
+    this.meadowData.emit(e);
+  }
+  user(e) {
+    this.userData.emit(e);
+  }
+  authority(e) {
+    this.authorityData.emit(e);
+  }
+  updateAuthority(e) {
+    this.updateAuthorityData.emit(e);
+  }
+  empower(e) {
+    this.empowerData.emit(e);
+  }
+  password(e) {
+    this.passwordData.emit(e);
+  }
   cancel() {
 
   }
@@ -88,6 +120,8 @@ export class DwTableComponent implements OnInit, OnChanges {
  * pageSize：每页数据
  * pageIndex：当前页
  * operate:是否开始操作
+ * nzScroll: 容器宽度
+ * nzWidth: 操作列宽度
  */
 export interface DwTable {
   itemLength?: number;
@@ -108,4 +142,10 @@ export interface DwTable {
   pageSize?: number;
   pageIndex?: number;
   operate?: boolean;
+  operateInfo?: boolean;
+  operaUser?: boolean;
+  operaRole?: boolean;
+  meadow?: boolean;
+  nzScroll?: any;
+  nzWidth?: string;
 }

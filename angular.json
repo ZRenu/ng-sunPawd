@@ -36,7 +36,8 @@
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "./node_modules/animate.css/animate.css",
-              "src/styles.less"
+              "src/styles.less",
+              "src/theme.less"
             ],
             "scripts": []
           },
@@ -85,7 +86,8 @@
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "./node_modules/animate.css/animate.css",
-              "src/styles.less"
+              "src/styles.less",
+              "src/theme.less"
             ],
             "scripts": [],
             "assets": [

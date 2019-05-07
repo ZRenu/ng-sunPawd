@@ -84,4 +84,5 @@ export interface DatePicker {
   endtPlaceHolder?: string;
   ShowToday?: boolean;
   Format?: string;
+  nzAllowClear?: boolean;
 }

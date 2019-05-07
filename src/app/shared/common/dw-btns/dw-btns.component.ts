@@ -9,11 +9,11 @@ export class DwBtnsComponent implements OnInit {
 
   constructor() { }
   @Input() btnsData: object;
-  @Output() activeData = new EventEmitter<number>();
+  @Output() activeData = new EventEmitter<object>();
   ngOnInit() {
   }
-  active(i: number) {
-    this.activeData.emit(i);
+  active(i: number, item: object) {
+    this.activeData.emit({ i: i, item: item });
   }
 }
 /**

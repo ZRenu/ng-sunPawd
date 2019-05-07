@@ -1,0 +1,97 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm($event, validateForm.value)" class="equ-info-model">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>牧场名称</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <input nz-input formControlName="userName" placeholder="async validate try to write JasonWood" />
+      <nz-form-explain *ngIf="
+            (validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors) ||
+            validateForm.get('userName')?.pending
+          ">
+        <ng-container *ngIf="validateForm.get('userName')?.hasError('required')">
+          Please input your username!
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('userName')?.hasError('duplicated')">
+          The username is redundant!
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('userName')?.pending">
+          Validating...
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>设备编号</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <input nz-input formControlName="email" placeholder="email" type="email" />
+      <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+        <ng-container *ngIf="validateForm.get('email')?.hasError('email')">
+          The input is not valid E-mail!
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('email')?.hasError('required')">
+          Please input your E-mail!
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>安装时间</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-date-picker formControlName="datePicker"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>GPS</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-select name="select-error" formControlName="warningHighValid">
+        <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>牧畜</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-select name="select-error" formControlName="warningHighValid">
+        <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7">品类</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-select name="select-error" formControlName="warningHighValid">
+        <nz-option nzValue="Option 1" nzLabel="Option 1"></nz-option>
+        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7">月龄</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback>
+      <input nz-input formControlName="email" placeholder="email" type="email" />
+      <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+        <ng-container *ngIf="validateForm.get('email')?.hasError('email')">
+          The input is not valid E-mail!
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('email')?.hasError('required')">
+          Please input your E-mail!
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7">备注</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <textarea formControlName="comment" nz-input rows="2" placeholder="write any thing"></textarea>
+      <nz-form-explain *ngIf="validateForm.get('comment')?.dirty && validateForm.get('comment')?.hasError('required')">
+        Please write something here!</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">取消</button>
+      <button nz-button (click)="resetForm($event)">保存</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

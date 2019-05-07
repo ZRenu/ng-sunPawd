@@ -5,27 +5,28 @@
   <div class="actual-chats">
     <app-dw-btns [btnsData]="btnsDataCharts" (activeData)="active($event,'chat')"></app-dw-btns>
     <nz-select style="min-width: 120px;margin:0 20px;" [compareWith]="compareFn" [(ngModel)]="selectedValue"
-      (ngModelChange)="log($event)" nzPlaceHolder="选择牧场">
+      (ngModelChange)="meadowChange($event,'chat')" nzPlaceHolder="选择牧场">
       <nz-option *ngFor="let option of optionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
     </nz-select>
     <app-dw-date-picker [datePicker]="datePicker" (startTime)="launchStart($event)" (endTime)="launchEnd($event)">
     </app-dw-date-picker>
   </div>
   <div class="animated fadeInRight" id="widthChart">
-    <app-charts></app-charts>
+    <app-charts [chartData]="chartData" [active]="chartData.key"></app-charts>
   </div>
 </div>
 <div *ngIf="btnsData.active === 1" class="animated fadeInRight fast">
   <div class="actual-data">
     <nz-select style="min-width: 120px;margin-right: 20px" [compareWith]="compareFn" [(ngModel)]="selectedValue"
-      (ngModelChange)="log($event)" nzPlaceHolder="选择牧场">
+      (ngModelChange)="meadowChange($event,'tb')" nzPlaceHolder="选择牧场">
       <nz-option *ngFor="let option of optionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
     </nz-select>
-    <nz-select style="min-width: 120px;margin-right: 20px" [compareWith]="compareFn" [(ngModel)]="selectedValue"
-      (ngModelChange)="log($event)" nzPlaceHolder="选择牧场">
-      <nz-option *ngFor="let option of optionList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+    <nz-select style="min-width: 120px;margin-right: 20px" [compareWith]="compareFn" [(ngModel)]="monitorValue"
+      (ngModelChange)="monitorChange($event)" nzPlaceHolder="选择监测项">
+      <nz-option *ngFor="let option of monitorList" [nzValue]="option" [nzLabel]="option.label"></nz-option>
     </nz-select>
-    <button nz-button nzType="primary">查询</button>
+    <button nz-button nzType="primary" (click)="search()">查询</button>
+    <button nz-button nzType="primary" (click)="clean()" style="margin-left:20px">重置</button>
   </div>
   <div class="animated fadeInRight">
     <app-table></app-table>

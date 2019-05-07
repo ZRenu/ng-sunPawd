@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DwTable } from 'src/app/shared/common/dw-table/dw-table.component';
+import { DwTable } from '../../../../shared/common/dw-table/dw-table.component';
 
 @Component({
   selector: 'app-table',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import * as echarts from 'echarts';
 @Component({
@@ -6,13 +6,22 @@ import * as echarts from 'echarts';
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.less']
 })
-export class ChartsComponent implements OnInit {
+export class ChartsComponent implements OnInit, OnChanges {
   chartOption: any;
-  constructor() { }
-
+  constructor() {
+  }
+  @Input() chartData: object;
+  @Input() active: number;
+  ngOnChanges() {
+    console.log('chartOptions2', this.chartData);
+    this.init();
+  }
   ngOnInit() {
     fromEvent(window, 'resize')
-      .subscribe(() => echarts.resize());
+      .subscribe(() => this.init());
+    this.init();
+  }
+  init() {
     this.chartOption = {
       tooltip: {
         trigger: 'axis',

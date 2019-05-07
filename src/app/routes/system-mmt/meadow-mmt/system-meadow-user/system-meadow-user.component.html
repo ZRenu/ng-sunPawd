@@ -1,0 +1,14 @@
+<div class="animated fadeInRight faster customer">
+  牧场：山东牧场1号
+  <button nz-button nzType="primary" style="margin:0 20px" (click)="toRouter()">返回牧场管理</button>
+  <button nz-button nzType="primary" (click)="add()">添加</button>
+</div>
+<div class="animated fadeInRight">
+  <app-dw-table [tableDatas]="tableDatas" (editData)="editTb($event)" (delete)="deleteTb($event)"
+    (warningData)="warningTb($event)" (meadowData)="meadowTb($event)" (userData)="userTb($event)"></app-dw-table>
+  <app-dw-pagination [tableDatas]="tableDatas" (pageIndex)="pageIndex($event)"></app-dw-pagination>
+</div>
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzMaskClosable]="false"
+  [nzFooter]="null" [nzTitle]="nzTitle">
+  <app-system-meadow-user-model [addData]="addData"></app-system-meadow-user-model>
+</nz-modal>
