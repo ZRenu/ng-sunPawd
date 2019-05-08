@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { DelonAuthModule, SimpleInterceptor } from '@delon/auth';
 import { DelonACLModule } from '@delon/acl';
 import zh from '@angular/common/locales/zh';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 registerLocaleData(zh);
 
 @NgModule({
@@ -33,6 +34,7 @@ registerLocaleData(zh);
   ],
   providers: [
     ApiService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: API_URL, useValue: environment.urlPrefix },
     { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true }
   ],
