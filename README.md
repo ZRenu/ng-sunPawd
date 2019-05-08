@@ -6,7 +6,7 @@
 ![blockchain](src/assets/icons/3.png)
 ## 项目说明
 
-项目继承[鹿途](https://github.com/ZhouRenYou/ng-deerway)管理系统框架结构。
+项目继承[鹿途](https://github.com/ZhouRenYou/ng-deerway)管理系统框架结构,是一个完整的后台管理模版。
 
 ## 项目资源
 
