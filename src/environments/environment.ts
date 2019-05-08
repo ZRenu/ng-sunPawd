@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlPrefix: 'local/api',
+  urlPrefix: 'http://api.guaqb.cn',
 };
 
 /*

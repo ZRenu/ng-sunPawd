@@ -97,10 +97,30 @@
     .main-vidoe {
       width: 100%;
       height: 170px;
-      background: #18bdb1;
       color: #ebfcf8;
       line-height: 170px;
       text-align: center;
+      display: flex;
+      justify-content: space-between;
+
+      video {
+        width: 100%;
+        height: 100%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .video {
+        margin-top: 10px;
+        height: 160px;
+        // width: 33%;
+        // background: lightblue;
+        background-image: url('../../../../assets/icons/v.jpg');
+        background-size: 100% 100%;
+      }
+
     }
   }
 

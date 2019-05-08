@@ -1,5 +1,5 @@
 import { Injectable, Inject, InjectionToken } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import 'rxjs';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -19,6 +19,15 @@ export class ApiService {
     @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService,
     private notification: NzNotificationService,
   ) { }
+  hearders() {
+    const hearders = {
+      headers: new HttpHeaders({
+        'contentType': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': 'http://api.guaqb.cn'
+      }),
+    };
+    return hearders;
+  }
   /**
    * 请求验证
    * @param e 服务器返回数据

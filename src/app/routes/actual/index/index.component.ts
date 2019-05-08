@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ApiService } from 'src/app/core/api/api.service';
 
 declare var require: any;
 
@@ -11,12 +12,15 @@ export class IndexComponent implements OnInit, AfterViewInit {
   seamless: any;
   tabs = [1, 2, 3];
   tabsActive = 0;
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
   noticeData = [];
   ngOnInit() {
     this.seamless = require('seamscroll');
     this.notice();
-
+    // let el = document.getElementById('video');
+    // el.muted = true
   }
   notice() {
     for (let index = 0; index < 5; index++) {
@@ -34,15 +38,19 @@ export class IndexComponent implements OnInit, AfterViewInit {
   tag(i: number) {
     this.tabsActive = i;
     const element = document.querySelector('.main-wrap');
-    element.classList.forEach(e => {
+    const list = element.classList;
+    for (let index = 0; index < list.length; index++) {
+      const e = list[index];
       if (e === 'fadeInRight') {
-        element.classList.replace('fadeInRight', 'bounceInRight');
+        element.classList.remove('fadeInRight');
+        element.classList.add('bounceInRight');
       }
       if (e === 'bounceInRight') {
-        element.classList.replace('bounceInRight', 'fadeInRight');
+        element.classList.remove('bounceInRight');
+        element.classList.add('fadeInRight');
       }
 
-    });
+    }
   }
   an() {
     const element = document.querySelector('.main-wrap');

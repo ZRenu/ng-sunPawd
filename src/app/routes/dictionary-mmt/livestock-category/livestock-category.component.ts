@@ -135,7 +135,6 @@ export class LivestockCategoryComponent implements OnInit {
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
-  } {
-}
+  }
 
 }

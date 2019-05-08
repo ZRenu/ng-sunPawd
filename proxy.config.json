@@ -1,0 +1,12 @@
+{
+  "/apidata": {
+    "target": "http://api.guaqb.cn",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/apidata": ""
+    }
+
+  }
+}
