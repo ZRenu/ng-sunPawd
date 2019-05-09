@@ -1,6 +1,6 @@
 {
   "/apidata": {
-    "target": "http://api.guaqb.cn",
+    "target": "https://www.tianqiapi.com/api/",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,

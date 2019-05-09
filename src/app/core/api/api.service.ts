@@ -60,4 +60,7 @@ export class ApiService {
     this.tokenService.clear();
     this.router.navigateByUrl('passport/login');
   }
+  weather(): Observable<any> {
+    return this.http.get('apidata/?version=v1&cityid=101110101');
+  }
 }

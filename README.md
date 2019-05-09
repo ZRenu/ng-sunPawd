@@ -18,7 +18,7 @@
 
 项目框架：[ng-zorro](https://ng.ant.design/version/1.8.x/)
 
-## 跨域代理（项目未启用）
+## 跨域代理
 
 1、根目录下新增proxy.config.json
 
@@ -43,7 +43,7 @@
   "builder": "@angular-devkit/build-angular:dev-server",
   "options": {
     "browserTarget": "project1:build",
-    "proxyConfig":"proxyconfig.json"
+      "proxyConfig": "proxy.config.json"
   },
 
 ```
@@ -56,7 +56,7 @@ login(params: { userCode: any; password: any; }): Observable<any> {
 ```
 4、重启运行
 ```ts
-ng serve --proxy-config proxy.conf.json
+ng serve --proxy-config proxy.config.json
 ```
 
 ## 提示

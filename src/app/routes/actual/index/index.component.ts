@@ -19,8 +19,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.seamless = require('seamscroll');
     this.notice();
-    // let el = document.getElementById('video');
-    // el.muted = true
+    this.api.weather().subscribe(e => { console.log(e) });
   }
   notice() {
     for (let index = 0; index < 5; index++) {
