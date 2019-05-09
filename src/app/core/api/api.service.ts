@@ -60,8 +60,9 @@ export class ApiService {
     this.tokenService.clear();
     this.router.navigateByUrl('passport/login');
   }
-  weather(): Observable<any> {
-    return this.http.jsonp('https://www.tianqiapi.com/api/?version=v1&cityid=101110101', 'callback');
+  /**根据ip获取天气 */
+  weather(ip: any): Observable<any> {
+    return this.http.jsonp('https://www.tianqiapi.com/api/?version=v1&ip=' + ip, 'callback');
 
   }
 }

@@ -1,77 +1,88 @@
 @import '../../../styles/icons.less';
 @import '../../../styles/index.less';
+
 :host ::ng-deep .ant-layout-header {
-    width: 100%;
-    position: fixed;
-    z-index: 999;
-    padding: 0;
-    color: #ffffff;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: rgba(24, 189, 177, 1);
-    .dw-flexItems(center);
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  padding: 0;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: rgba(24, 189, 177, 1);
+  .dw-flexItems(center);
 }
 
 .dw-logo {
-    height: 100%;
-    margin-right: 18px;
-    .dw-flexIC(center, center);
+  height: 100%;
+  margin-right: 18px;
+  .dw-flexIC(center, center);
 }
 
 .dw-inter {
-    flex-grow: 2;
+  flex-grow: 2;
+  .dw-flexItems(center);
+  justify-content: flex-end;
+
+  i {
+    font-size: 20px;
+  }
+
+  a {
+    outline: none;
+    color: #ffffff;
+  }
+
+  .dw-inter-left {
     .dw-flexItems(center);
-    justify-content: flex-end;
-    i {
-        font-size: 20px;
+  }
+
+  .dw-inter-right {
+    .dw-flexItems(center);
+    margin-right: 50px;
+  }
+
+  .dw-inter-item {
+    padding: 0 20px;
+    height: 40px;
+    margin-right: 20px;
+    .dw-flexItems(center);
+
+    &:hover {
+      height: 40px;
+      background: rgba(24, 189, 177, 1);
+      .dw-flexItems(center);
+      padding: 0 20px;
     }
-    a {
-        outline: none;
-        color: #ffffff;
-    }
-    .dw-inter-left {
-        .dw-flexItems(center);
-    }
-    .dw-inter-right {
-        .dw-flexItems(center);
-        margin-right: 50px;
-    }
-    .dw-inter-item {
-        padding: 0 20px;
-        height: 40px;
-        margin-right: 20px;
-        .dw-flexItems(center);
-        &:hover {
-            height: 40px;
-            background: rgba(24, 189, 177, 1);
-            .dw-flexItems(center);
-            padding: 0 20px;
-        }
-    }
-    .dw-inter-search {
-        margin: 0 5px;
-    }
+  }
+
+  .dw-inter-search {
+    margin: 0 5px;
+  }
 }
 
 .dw-inter-change {
-    height: 40px;
-    i {
-        font-size: 20px;
-    }
-    &:hover {
-        height: 40px;
-        background: rgba(24, 189, 177, 1);
-        .dw-flexItems(center);
-        padding: 0 10px;
-    }
-    padding: 0 10px;
+  i {
+    font-size: 20px;
+  }
+
+  &:hover {
+
+    background: rgba(24, 189, 177, 1);
     .dw-flexItems(center);
+    padding: 0 10px;
+  }
+
+  padding: 0 10px;
+  .dw-flexItems(center);
 }
-.dw-user{
-    display: flex;
-    width: calc(100% - 200px)
+
+.dw-user {
+  display: flex;
+  width: calc(100% - 200px)
 }
-.dw-user-false{
-    display: flex;
-    width: calc(100% - 64px)
+
+.dw-user-false {
+  display: flex;
+  width: calc(100% - 64px)
 }
