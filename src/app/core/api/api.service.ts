@@ -61,6 +61,7 @@ export class ApiService {
     this.router.navigateByUrl('passport/login');
   }
   weather(): Observable<any> {
-    return this.http.get('apidata/?version=v1&cityid=101110101');
+    return this.http.jsonp('https://www.tianqiapi.com/api/?version=v1&cityid=101110101', 'callback');
+
   }
 }

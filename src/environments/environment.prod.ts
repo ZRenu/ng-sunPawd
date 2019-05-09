@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlPrefix: '/api/',
+  urlPrefix: 'http://api.guaqb.cn',
 };
