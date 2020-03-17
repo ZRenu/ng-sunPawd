@@ -1,27 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
+import { LayoutOneComponent } from "./layout-one/layout-one.component";
+import { SharedModule } from "../shared/shared.module";
+import { LayoutTwoComponent } from "./layout-two/layout-two.component";
+import { LayoutThreeComponent } from "./layout-three/layout-three.component";
 import { PassportComponent } from './passport/passport.component';
-import { FullscreenComponent } from './fullscreen/fullscreen.component';
-import { DefaultComponent } from './default/default.component';
-import { SharedModule } from '../shared/shared.module';
-import { HeaderComponent } from './default/header/header.component';
-import { SiderComponent } from './default/sider/sider.component';
-
-const COMPONENTS = [
-  PassportComponent,
-  FullscreenComponent,
-  DefaultComponent
-];
+const LAYOUTS = [LayoutOneComponent, LayoutTwoComponent, LayoutThreeComponent];
 @NgModule({
-  imports: [
-    SharedModule
-  ],
-  declarations: [
-    ...COMPONENTS,
-    HeaderComponent,
-    SiderComponent
-  ],
-  exports: [
-    ...COMPONENTS
-  ]
+  declarations: [...LAYOUTS, PassportComponent],
+  exports: [...LAYOUTS],
+  imports: [SharedModule]
 })
-export class LayoutModule { }
+export class LayoutModule {}

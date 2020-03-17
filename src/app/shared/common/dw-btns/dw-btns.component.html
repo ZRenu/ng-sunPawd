@@ -1,4 +1,0 @@
-<div class="btns">
-  <p *ngFor="let item of btnsData.data;let i = index" [class]="btnsData.size"
-    [ngClass]="{'active': btnsData.active === i}" (click)="active(i,item)">{{item.title}}</p>
-</div>

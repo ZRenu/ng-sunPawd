@@ -1,49 +1,53 @@
-.main-wrapper {
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  background-image: linear-gradient(to left, rgba(24, 189, 177, 1) 30%, #29bdd9 100%);
+.container {
+  height: 100vh;
+  background-color: #fafafa;
+
 }
 
-.layout-passport {
-  width: 430px;
-  height: 540px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 4px;
+.passport {
+  width: 400px;
+  height: 450px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -200px 0 0 -225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background: #fff;
-
-  h2 {
-    text-align: center;
-  }
+  border: 1px solid #e9e9e9;
+  border-radius: 4px
 }
 
-.layou-logo {
-  display: flex;
-  justify-content: center;
-  padding: 20px 0;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  background: url(../../../assets/icons/logo.png) center no-repeat;
-  background-size: 100% 100%;
-  margin: 50px auto;
+.wrap {
+  width: 300px;
 }
 
-.accout-slogon {
+.head {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #595959;
-  font-size: 12px
+  flex-direction: column;
+  margin-top: 60px;
 }
 
-.account-login {
-  display: flex;
-  justify-content: center;
+.logo {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top:-75px;
 }
 
-:host ::ng-deep i.anticon {
-  color: #18bdb1;
+.title {
+  color: rgba(0, 0, 0, .85);
+  font-weight: 600;
+  font-size: 33px;
+}
+
+.desc {
+  margin-top: 12px;
+  margin-bottom: 40px;
+  color: #34495e;
+  font-size: 14px;
 }
