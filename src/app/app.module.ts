@@ -17,6 +17,8 @@ import {
   SimpleInterceptor,
   DelonAuthConfig
 } from "@delon/auth";
+import { CoreModule } from "./core/core.module";
+import { BackInterceptor } from "./core/net/back.interceptor";
 export function delonAuthConfig(): DelonAuthConfig {
   return Object.assign(new DelonAuthConfig(), {
     token_send_key: "Authorization",
@@ -27,18 +29,20 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    DelonAuthModule,
+    CoreModule,
     SharedModule,
     LayoutModule,
     BrowserModule,
+    DelonAuthModule,
     AppRoutingModule,
     IconsProviderModule,
     BrowserAnimationsModule
   ],
   providers: [
+    { provide: DelonAuthConfig, useFactory: delonAuthConfig },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true },
-    { provide: DelonAuthConfig, useFactory: delonAuthConfig }
+    { provide: HTTP_INTERCEPTORS, useClass: BackInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

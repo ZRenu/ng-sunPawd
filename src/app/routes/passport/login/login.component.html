@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+<form nz-form [formGroup]="LoginForm" (ngSubmit)="submitForm(LoginForm.value)">
   <nz-form-item>
     <nz-form-control nzErrorTip="请输入用户账号!">
       <nz-input-group nzPrefixIcon="user">
@@ -19,7 +19,7 @@
         <span>记住密码</span>
       </label>
       <a class="login-form-forgot" class="login-form-forgot" routerLink="/passport/forget">忘记密码</a>
-      <button nz-button class="login-form-button" [nzType]="'primary'">登录</button>
+      <button nz-button class="login-form-button" [nzType]="'primary'">{{loadingdesc}}</button>
     </nz-form-control>
   </nz-form-item>
 </form>
