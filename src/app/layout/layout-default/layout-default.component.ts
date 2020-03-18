@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Inject } from "@angular/core";
-import { DA_SERVICE_TOKEN, ITokenService } from "@delon/auth";
+import { DA_SERVICE_TOKEN, ITokenService, TokenService } from "@delon/auth";
 import { Router } from "@angular/router";
 import { fromEvent } from "rxjs";
 import { HttpClient } from "@angular/common/http";
@@ -12,9 +12,14 @@ import { HttpClient } from "@angular/common/http";
 export class LayoutDefaultComponent implements OnInit {
   isCollapsed = false;
   menus = [];
-  constructor(private http: HttpClient) {}
+  user = "";
+  constructor(
+    private http: HttpClient,
+    @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService
+  ) {}
   ngOnInit() {
     this.menu();
+    this.user = this.tokenService.get().name;
   }
   menu() {
     this.http.get("/menus").subscribe((m: []) => {

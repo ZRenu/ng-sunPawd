@@ -1,7 +1,18 @@
 <!-- <router-outlet></router-outlet> -->
 <nz-layout class="layout">
   <nz-header>
-    <span>Sun Public Admin Web-design By Renu</span>
+    <span>SUN PAWD BY RENU 后台管理系统前端框架 </span>
+    <div class="header-right">
+      <div class="appstore header-item">
+        <i nz-icon nzType="appstore" nzTheme="outline"></i>
+      </div>
+      <div class="setting header-item">
+        <i nz-icon nzType="setting" nzTheme="outline"></i>
+      </div>
+      <div class="user header-item">
+        <a>{{user}}</a>
+      </div>
+    </div>
   </nz-header>
   <nz-layout class="inner-layout">
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
@@ -28,8 +39,8 @@
           <router-outlet>
           </router-outlet>
         </div>
-        <nz-footer><a href="https://github.com/ZRenu/ng-sunPawd" target="_blank"
-            style="outline: none;color: #1890ff;">Sun
+        <nz-footer [ngStyle]="{'margin-left':isCollapsed?'8px':'200px'}"><a href="https://github.com/ZRenu/ng-sunPawd"
+            target="_blank" style="outline: none;color: #1890ff;">Sun
             Public
             Admin Web-design</a> ©2020 By <a href="https://www.zhourenu.com/" target="_blank"
             style="outline: none;color: #1890ff;">Renu</a></nz-footer>
