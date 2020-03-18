@@ -1,0 +1,47 @@
+.layout {
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+
+}
+
+nz-header {
+    position: fixed;
+    width: 100%;
+}
+nz-sider {
+    overflow: auto;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 64px;
+    background: #fff;
+
+    ul {
+        padding-bottom: 24px;
+    }
+
+}
+
+.inner-content {
+    // margin: 84px 24px 0 224px;
+    margin-top: 84px;
+    margin-right: 24px;
+    padding: 24px;
+    text-align: center;
+    overflow: initial;
+    min-height: calc(100vh - 64px);
+    background-color: #fff;
+}
+
+nz-footer {
+    margin-left: 200px;
+    text-align: center;
+}
+
+li {
+
+    /*取消routerLink点击出现的边框*/
+    &:focus {
+        outline: none !important;
+    }
+}

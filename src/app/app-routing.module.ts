@@ -5,8 +5,9 @@ import { LayoutTwoComponent } from "./layout/layout-two/layout-two.component";
 import { LayoutThreeComponent } from "./layout/layout-three/layout-three.component";
 import { PassportComponent } from "./layout/passport/passport.component";
 import { ExceptionComponent } from "./layout/exception/exception.component";
-import { LoginGuardService } from './guard/login-guard.service';
-const defaultLayout = "layout-one";
+import { LoginGuardService } from "./guard/login-guard.service";
+import { LayoutDefaultComponent } from "./layout/layout-default/layout-default.component";
+const defaultLayout = "layout-default";
 const canActivate = [LoginGuardService];
 const exceptionChildren = [{}];
 const children = [
@@ -22,7 +23,14 @@ const routes: Routes = [
   {
     path: "passport",
     component: PassportComponent,
-    children: passportChildren
+    children: passportChildren,
+    canActivate
+  },
+  {
+    path: "layout-default",
+    component: LayoutDefaultComponent,
+    children,
+    canActivate
   },
   {
     path: "layout-one",

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           name: res.data.name,
           id: res.data.id
         });
-        this.router.navigateByUrl("layout-one");
+        this.router.navigateByUrl("layout-default");
       });
     } else {
       this.notice.Notification("登录提示", "请输入登录信息！");

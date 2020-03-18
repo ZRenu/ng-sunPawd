@@ -1,0 +1,30 @@
+<!-- <router-outlet></router-outlet> -->
+<nz-layout class="layout">
+  <nz-header>
+  </nz-header>
+  <nz-layout class="inner-layout">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <ng-container *ngFor="let menu of menus">
+          <li nz-submenu *ngIf="menu.children.length">
+            <span title><i nz-icon [type]="menu.icon"></i><span class="nav-text">{{menu.text}}</span></span>
+            <ul>
+              <li nz-menu-item *ngFor="let children of menu.children" [routerLink]="[children.link]">{{children.text}}
+              </li>
+            </ul> 
+          </li>
+          <li nz-menu-item *ngIf="menu.children.length === 0" [routerLink]="[menu.link]">
+            <span title><i nz-icon [type]="menu.icon"></i><span class="nav-text">{{menu.text}}</span></span>
+          </li>
+        </ng-container>
+      </ul>
+    </nz-sider>
+    <nz-content>
+      <div class="inner-content" [ngStyle]="{'margin-left':isCollapsed?'104px':'224px'}">
+        <router-outlet>
+        </router-outlet>
+      </div>
+      <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
