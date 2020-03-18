@@ -12,8 +12,20 @@ const canActivate = [LoginGuardService];
 const exceptionChildren = [{}];
 const children = [
   { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", loadChildren: "./routes/home/home.module#HomeModule" },
-  { path: "auth", loadChildren: "./routes/auth/auth.module#AuthModule" }
+  {
+    path: "home",
+    loadChildren: "./routes/home/home.module#HomeModule",
+    data: {
+      breadcrumb: "首页"
+    }
+  },
+  {
+    path: "auth",
+    loadChildren: "./routes/auth/auth.module#AuthModule",
+    data: {
+      breadcrumb: "角色权限"
+    }
+  }
 ];
 const passportChildren = [
   { path: "", loadChildren: "./routes/passport/passport.module#PassportModule" }

@@ -1,18 +1,23 @@
 const menu = [
   {
     text: "首页",
-    link: "",
+    link: "/layout-default/home/index",
     icon: "home",
     children: []
   },
   {
-    text: "图表",
+    text: "角色权限",
     link: "",
-    icon: "line-chart",
+    icon: "usergroup-delete",
     children: [
       {
-        text: "折线图",
-        link: "",
+        text: "角色列表",
+        link: "/layout-default/auth/index",
+        icon: ""
+      },
+      {
+        text: "用户列表",
+        link: "/layout-default/auth/user",
         icon: ""
       }
     ]
@@ -214,7 +219,7 @@ const menu = [
         icon: ""
       }
     ]
-  },
+  }
 ];
 export const MENUS = {
   "GET /menus": menu

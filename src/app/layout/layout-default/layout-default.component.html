@@ -1,10 +1,11 @@
 <!-- <router-outlet></router-outlet> -->
 <nz-layout class="layout">
   <nz-header>
+    <span>Sun Public Admin Web-design By Renu</span>
   </nz-header>
   <nz-layout class="inner-layout">
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
-      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="padding-bottom: 24px;">
         <ng-container *ngFor="let menu of menus">
           <li nz-submenu *ngIf="menu.children.length">
             <span title><i nz-icon [type]="menu.icon"></i><span class="nav-text">{{menu.text}}</span></span>
@@ -19,12 +20,20 @@
         </ng-container>
       </ul>
     </nz-sider>
-    <nz-content>
-      <div class="inner-content" [ngStyle]="{'margin-left':isCollapsed?'104px':'224px'}">
-        <router-outlet>
-        </router-outlet>
-      </div>
-      <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
-    </nz-content>
+    <nz-layout>
+      <nz-content>
+        <nz-breadcrumb [ngStyle]="{'margin-left':isCollapsed?'104px':'225px'}" [nzAutoGenerate]="true">
+        </nz-breadcrumb>
+        <div class="inner-content" [ngStyle]="{'margin-left':isCollapsed?'104px':'224px'}">
+          <router-outlet>
+          </router-outlet>
+        </div>
+        <nz-footer><a href="https://github.com/ZRenu/ng-sunPawd" target="_blank"
+            style="outline: none;color: #1890ff;">Sun
+            Public
+            Admin Web-design</a> ©2020 By <a href="https://www.zhourenu.com/" target="_blank"
+            style="outline: none;color: #1890ff;">Renu</a></nz-footer>
+      </nz-content>
+    </nz-layout>
   </nz-layout>
 </nz-layout>
