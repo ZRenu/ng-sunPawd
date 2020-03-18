@@ -1,12 +1,18 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Injector } from "@angular/core";
 import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
   HttpEvent,
-  HttpResponse
+  HttpResponse,
+  HttpResponseBase,
+  HttpErrorResponse
 } from "@angular/common/http";
-import { tap } from "rxjs/operators";
+import { mergeMap, catchError } from "rxjs/operators";
+import { Observable } from "rxjs/internal/Observable";
+import { DA_SERVICE_TOKEN, ITokenService } from "@delon/auth";
+import { throwError, of } from "rxjs";
+import { NoticeService } from "../notices/notice.service";
 const CODEMESSAGE = {
   200: "服务器成功返回请求的数据。",
   201: "新建或修改数据成功。",
@@ -26,23 +32,57 @@ const CODEMESSAGE = {
 };
 @Injectable()
 export class BackInterceptor implements HttpInterceptor {
+  constructor(private injector: Injector, private notice: NoticeService) {}
+  private handleData(ev: HttpResponseBase): Observable<any> {
+    // 业务处理： 服务端返回200，但是有可能是业务上出错
+    switch (ev.status) {
+      case 200:
+        if (ev instanceof HttpResponse) {
+          const body: any = ev.body;
+          switch (body.status) {
+            case 10101:
+              this.notice.Notification("登录提示", body.message);
+          }
+        }
+        break;
+      case 401:
+        // this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
+        // // 清空 token 信息
+        // (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
+        // this.goTo("/passport/login");
+        break;
+      case 403:
+      case 404:
+      case 500:
+        // this.goTo(`/exception/${ev.status}`);
+        break;
+      default:
+        if (ev instanceof HttpErrorResponse) {
+          console.warn(
+            "未可知错误，大部分是由于后端不支持CORS或无效配置引起",
+            ev
+          );
+        }
+        break;
+    }
+    if (ev instanceof HttpErrorResponse) {
+      return throwError(ev);
+    } else {
+      return of(ev);
+    }
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return next.handle(req).pipe(
-      tap((event: HttpEvent<any>) => {
-        if (
-          event instanceof HttpResponse &&
-          event.status >= 200 &&
-          event.status < 300
-        ) {
-          return;
+      mergeMap((event: any) => {
+        // 允许统一对请求错误处理
+        if (event instanceof HttpResponseBase) {
+          return this.handleData(event);
         }
-        if (event[status] === 504) {
-          console.log(event);
-        } else {
-          const errortext = CODEMESSAGE[event[status]];
-          console.log("err");
-        }
-      })
+        // 若一切都正常，则后续操作
+        return of(event);
+      }),
+      catchError((err: HttpErrorResponse) => this.handleData(err))
     );
   }
 }

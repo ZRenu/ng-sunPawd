@@ -1,24 +1,25 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { IconsProviderModule } from "./icons-provider.module";
-
-import { registerLocaleData } from "@angular/common";
 import zh from "@angular/common/locales/zh";
+import { DelonMockModule } from "@delon/mock";
+import { AppComponent } from "./app.component";
+import { CoreModule } from "./core/core.module";
+import { registerLocaleData } from "@angular/common";
 import { LayoutModule } from "./layout/layout.module";
 import { SharedModule } from "./shared/shared.module";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { AppRoutingModule } from "./app-routing.module";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { BackInterceptor } from "./core/net/back.interceptor";
+import { IconsProviderModule } from "./icons-provider.module";
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NZ_NOTIFICATION_CONFIG } from "ng-zorro-antd";
+import * as MOCKDATA from "./mock";
 import {
   DelonAuthModule,
   SimpleInterceptor,
   DelonAuthConfig
 } from "@delon/auth";
-import { CoreModule } from "./core/core.module";
-import { BackInterceptor } from "./core/net/back.interceptor";
 export function delonAuthConfig(): DelonAuthConfig {
   return Object.assign(new DelonAuthConfig(), {
     token_send_key: "Authorization",
@@ -36,11 +37,13 @@ registerLocaleData(zh);
     DelonAuthModule,
     AppRoutingModule,
     IconsProviderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DelonMockModule.forRoot({ data: MOCKDATA })
   ],
   providers: [
     { provide: DelonAuthConfig, useFactory: delonAuthConfig },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: NZ_NOTIFICATION_CONFIG, useValue: { nzMaxStack: 1 } },
     { provide: HTTP_INTERCEPTORS, useClass: BackInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true }
   ],

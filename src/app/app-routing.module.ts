@@ -4,15 +4,17 @@ import { LayoutOneComponent } from "./layout/layout-one/layout-one.component";
 import { LayoutTwoComponent } from "./layout/layout-two/layout-two.component";
 import { LayoutThreeComponent } from "./layout/layout-three/layout-three.component";
 import { PassportComponent } from "./layout/passport/passport.component";
-import { JWTGuard } from '@delon/auth';
+import { ExceptionComponent } from "./layout/exception/exception.component";
+import { LoginGuardService } from './guard/login-guard.service';
 const defaultLayout = "layout-one";
-const canActivate = [JWTGuard];
+const canActivate = [LoginGuardService];
+const exceptionChildren = [{}];
 const children = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", loadChildren: "./routes/home/home.module#HomeModule" },
   { path: "auth", loadChildren: "./routes/auth/auth.module#AuthModule" }
 ];
-const passportChilden = [
+const passportChildren = [
   { path: "", loadChildren: "./routes/passport/passport.module#PassportModule" }
 ];
 const routes: Routes = [
@@ -20,7 +22,7 @@ const routes: Routes = [
   {
     path: "passport",
     component: PassportComponent,
-    children: passportChilden
+    children: passportChildren
   },
   {
     path: "layout-one",
