@@ -1,11 +1,78 @@
 <div class="header">
-  <div class="appstore header-item">
-    <i nz-icon nzType="appstore" nzTheme="outline"></i>
+  <div class="notice">
+    <a nz-dropdown class="header-item" [nzDropdownMenu]="notice" [nzPlacement]="'bottomRight'" nzTrigger="click">
+      <nz-badge nzDot>
+        <i nz-icon nzType="bell" nzTheme="outline"></i>
+        <a class="head-example"></a>
+      </nz-badge>
+    </a>
+    <nz-dropdown-menu #notice="nzDropdownMenu">
+      <div class="tab">
+        <nz-tabset>
+          <nz-tab nzTitle="通知">
+            <div class="tab-content">
+              <nz-list [nzDataSource]="sourceData" [nzRenderItem]="nzitem" [nzItemLayout]="'horizontal'"
+                [nzLoading]="loading">
+                <ng-template #nzitem let-item>
+                  <nz-list-item>
+                    <i nz-icon [nzType]="item.type" [nzTheme]="'twotone'" [nzTwotoneColor]="item.color"
+                      class="listIcon"></i>
+                    <nz-list-item-meta [nzTitle]="item.description" [nzDescription]="item.time">
+                      <ng-template #Title>
+                        <a>{{ item.title }}</a>
+                      </ng-template>
+                    </nz-list-item-meta>
+                  </nz-list-item>
+                </ng-template>
+              </nz-list>
+              <div class="tab-footer">
+                清空通知
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="消息">
+            <div class="tab-content">
+              <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+                <ng-template #item let-item>
+                  <nz-list-item>
+                    <nz-list-item-meta [nzTitle]="nzTitle"
+                      nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                      [nzDescription]="item.description">
+                      <ng-template #nzTitle>
+                        <a>{{ item.title }}</a>
+                      </ng-template>
+                    </nz-list-item-meta>
+                  </nz-list-item>
+                </ng-template>
+              </nz-list>
+              <div class="tab-footer">
+                清空消息
+              </div>
+            </div>
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </nz-dropdown-menu>
   </div>
-  <div class="setting header-item">
-    <i nz-icon nzType="setting" nzTheme="outline"></i>
+  <div class="setting">
+    <a nz-dropdown [nzDropdownMenu]="setting" class="header-item" [nzPlacement]="'bottomRight'" nzTrigger="click">
+      <i nz-icon nzType="setting" nzTheme="outline"></i>
+    </a>
+    <nz-dropdown-menu #setting="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item><i nz-icon nzType="book" nzTheme="outline"></i>系统说明</li>
+        <li nz-menu-item><i nz-icon nzType="tool" nzTheme="outline"></i>应用设置</li>
+      </ul>
+    </nz-dropdown-menu>
   </div>
-  <div class="user header-item">
-    <a>{{user}}</a>
-  </div>
+  <a nz-dropdown [nzDropdownMenu]="menu" class="header-item">
+    {{user}}
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item><i nz-icon nzType="unlock" nzTheme="outline"></i>修改密码</li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline"></i>退出登录</li>
+    </ul>
+  </nz-dropdown-menu>
 </div>

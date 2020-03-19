@@ -8,13 +8,14 @@
 
 .header-item {
     display: block;
-    min-width: 50px;
-    padding: 8px 2px;
+    padding: 8px 15px;
     line-height: 100%;
     text-align: center;
     border-radius: 2px;
     outline: 0;
     transition: background-color .3s;
+    color: #fff;
+
 
     &:hover {
         color: #fff;
@@ -22,11 +23,59 @@
     }
 }
 
-.user {
-    padding: 8px 10px !important;
-
-    a {
-        color: #fff;
-        font-weight: normal;
+nz-badge {
+    i {
+        font-size: 17px;
     }
+}
+
+.tab {
+    background-color: #fff;
+    border-radius: 8px;
+    height: 500px;
+    width: 300px;
+    cursor: pointer;
+}
+
+::ng-deep .ant-tabs-nav-scroll {
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-content {
+    height: 440px;
+    overflow-y: scroll;
+
+    // 隐藏滚动条
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tab-footer {
+    cursor: pointer;
+    width: 300px;
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    color: rgba(0, 0, 0, .65);
+    line-height: 45px;
+    text-align: center;
+    border-top: 1px solid #e8e8e8;
+    background-color: #fff;
+
+    &:hover {
+        color: #1890ff;
+    }
+}
+
+nz-list {
+    padding: 0 10px;
+}
+
+.listIcon {
+    font-size: 30px;
+    margin: 10px;
 }
