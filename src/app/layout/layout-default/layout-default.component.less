@@ -24,6 +24,7 @@ nz-header {
 }
 
 nz-sider {
+    z-index: 999;
     overflow: auto;
     height: 100%;
     position: fixed;
@@ -31,16 +32,30 @@ nz-sider {
     top: 64px;
     background: #fff;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+nz-content {
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 nz-breadcrumb {
-    position: relative;
-    top: 74px;
+    position: fixed;
+    width: 100%;
+    top: 64px;
+    padding: 12px 0;
+    background: #f0f2f5;
 }
+
 
 .inner-content {
     min-width: 1100px;
-    margin-top: 84px;
+    margin-top: 90px;
     margin-right: 24px;
     padding: 24px;
     text-align: center;
