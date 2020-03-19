@@ -12,7 +12,7 @@ import { mergeMap, catchError } from "rxjs/operators";
 import { Observable } from "rxjs/internal/Observable";
 import { DA_SERVICE_TOKEN, ITokenService } from "@delon/auth";
 import { throwError, of } from "rxjs";
-import { NoticeService } from "../notices/notice.service";
+import { NoticeService } from '../notices/notice.service';
 const CODEMESSAGE = {
   200: "服务器成功返回请求的数据。",
   201: "新建或修改数据成功。",

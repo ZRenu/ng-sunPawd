@@ -2,14 +2,13 @@ import { NgModule } from "@angular/core";
 import zh from "@angular/common/locales/zh";
 import { DelonMockModule } from "@delon/mock";
 import { AppComponent } from "./app.component";
-import { CoreModule } from "./core/core.module";
 import { registerLocaleData } from "@angular/common";
 import { LayoutModule } from "./layout/layout.module";
 import { SharedModule } from "./shared/shared.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
-import { BackInterceptor } from "./core/net/back.interceptor";
+import { BackInterceptor } from "./shared/net/back.interceptor";
 import { IconsProviderModule } from "./icons-provider.module";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -30,7 +29,6 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    CoreModule,
     SharedModule,
     LayoutModule,
     BrowserModule,

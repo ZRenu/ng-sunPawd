@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PassportService } from "../passport.service";
-import { NoticeService } from "src/app/core/notices/notice.service";
+import { NoticeService } from "src/app/shared/notices/notice.service";
 import { DA_SERVICE_TOKEN, TokenService } from "@delon/auth";
 import { Router } from "@angular/router";
 
