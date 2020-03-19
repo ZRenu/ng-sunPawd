@@ -5,7 +5,7 @@ import { LayoutTwoComponent } from "./layout/layout-two/layout-two.component";
 import { LayoutThreeComponent } from "./layout/layout-three/layout-three.component";
 import { PassportComponent } from "./layout/passport/passport.component";
 import { ExceptionComponent } from "./layout/exception/exception.component";
-import { LoginGuardService } from "./guard/login-guard.service";
+import { LoginGuardService } from "./shared/guard/login-guard.service";
 import { LayoutDefaultComponent } from "./layout/layout-default/layout-default.component";
 const defaultLayout = "layout-default";
 const canActivate = [LoginGuardService];
