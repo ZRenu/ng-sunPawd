@@ -28,15 +28,17 @@ const children = [
   }
 ];
 const passportChildren = [
-  { path: "", loadChildren: "./routes/passport/passport.module#PassportModule" }
+  {
+    path: "",
+    loadChildren: "./routes/passport/passport.module#PassportModule"
+  }
 ];
 const routes: Routes = [
   { path: "", redirectTo: defaultLayout, pathMatch: "full" },
   {
     path: "passport",
     component: PassportComponent,
-    children: passportChildren,
-    canActivate
+    children: passportChildren
   },
   {
     path: "layout-default",
