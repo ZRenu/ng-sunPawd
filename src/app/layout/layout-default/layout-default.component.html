@@ -3,33 +3,12 @@
   <nz-header>
     <span>SUN PAWD BY RENU 后台管理系统前端框架 </span>
     <div class="header-right">
-      <div class="appstore header-item">
-        <i nz-icon nzType="appstore" nzTheme="outline"></i>
-      </div>
-      <div class="setting header-item">
-        <i nz-icon nzType="setting" nzTheme="outline"></i>
-      </div>
-      <div class="user header-item">
-        <a>{{user}}</a>
-      </div>
+      <app-header-operate></app-header-operate>
     </div>
   </nz-header>
   <nz-layout class="inner-layout">
     <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
-      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="padding-bottom: 24px;">
-        <ng-container *ngFor="let menu of menus">
-          <li nz-submenu *ngIf="menu.children.length">
-            <span title><i nz-icon [type]="menu.icon"></i><span class="nav-text">{{menu.text}}</span></span>
-            <ul>
-              <li nz-menu-item *ngFor="let children of menu.children" [routerLink]="[children.link]">{{children.text}}
-              </li>
-            </ul> 
-          </li>
-          <li nz-menu-item *ngIf="menu.children.length === 0" [routerLink]="[menu.link]">
-            <span title><i nz-icon [type]="menu.icon"></i><span class="nav-text">{{menu.text}}</span></span>
-          </li>
-        </ng-container>
-      </ul>
+      <app-sider [isCollapsed]="isCollapsed"></app-sider>
     </nz-sider>
     <nz-layout>
       <nz-content>

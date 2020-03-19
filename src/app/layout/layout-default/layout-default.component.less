@@ -21,37 +21,6 @@ nz-header {
     position: absolute;
     top: 0;
     right: 24px;
-    cursor: pointer;
-    display: flex;
-    font-size: 17px;
-    height: 64px;
-    align-items: center;
-
-    .header-item {
-        display: block;
-        min-width: 50px;
-        padding: 8px 2px;
-        line-height: 100%;
-        text-align: center;
-        border-radius: 2px;
-        outline: 0;
-        transition: background-color .3s;
-
-        &:hover {
-            color: #fff;
-            background-color: rgba(255, 255, 255, .2) !important;
-        }
-    }
-
-    .user {
-        padding: 8px 10px !important;
-
-        a {
-            color: #fff;
-            font-weight: normal;
-        }
-    }
-
 }
 
 nz-sider {
@@ -82,12 +51,4 @@ nz-breadcrumb {
 
 nz-footer {
     text-align: center;
-}
-
-li {
-
-    /*取消routerLink点击出现的边框*/
-    &:focus {
-        outline: none !important;
-    }
 }
