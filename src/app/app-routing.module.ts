@@ -8,7 +8,7 @@ import { ExceptionComponent } from "./layout/exception/exception.component";
 import { LoginGuardService } from "./guard/login-guard.service";
 import { LayoutDefaultComponent } from "./layout/layout-default/layout-default.component";
 const defaultLayout = "layout-default";
-const canActivate = [];
+const canActivate = [LoginGuardService];
 const exceptionChildren = [{}];
 const children = [
   { path: "", redirectTo: "home", pathMatch: "full" },
