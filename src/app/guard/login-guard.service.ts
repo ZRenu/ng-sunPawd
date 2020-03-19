@@ -13,6 +13,14 @@ export class LoginGuardService implements CanActivate {
   ) {}
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     const token = this.tokenService.get().token;
+    // if (path === "login") {
+    //   if (token) {
+    //     return true;
+    //   } else {
+    //     this.router.navigate(["/assport/login"]);
+    //     return false;
+    //   }
+    // }
     if (!token) {
       this.router.navigateByUrl("/passport/login");
       return false;
