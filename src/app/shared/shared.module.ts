@@ -14,9 +14,10 @@ const SHAREDS = [
   FormsModule,
   HttpClientModule
 ];
+const PIPE = [DemoPipe];
 @NgModule({
-  declarations: [DemoPipe],
+  declarations: [...PIPE],
   imports: [...SHAREDS],
-  exports: [...SHAREDS, DemoPipe]
+  exports: [...SHAREDS, ...PIPE]
 })
 export class SharedModule {}

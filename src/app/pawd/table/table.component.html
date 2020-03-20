@@ -1,0 +1,21 @@
+<nz-table #basicTable [nzData]="tbData.nzData" [nzScroll]="tbData.nzScroll" [nzLoading]="tbData.nzLoading">
+  <thead>
+    <tr>
+      <th *ngFor="let column of tbData.column" [nzWidth]="column.nzWidth" [nzLeft]="column.nzLeft"
+        [nzRight]="column.nzRight">{{column.title}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data;let i = index">
+      <ng-container *ngFor="let  column of tbData.column;let i=index">
+        <td [nzLeft]="column.nzLeft" [nzRight]="column.nzRight">
+          {{data[column?.index]}}
+          <ng-container *ngFor="let btn of column?.buttons;let b = index">
+            <button nz-button [nzType]="btn.type" (click)="click($event,i,data,btn.mark)">{{btn.text}}</button>
+          </ng-container>
+        </td>
+      </ng-container>
+
+    </tr>
+  </tbody>
+</nz-table>

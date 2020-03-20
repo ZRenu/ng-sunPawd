@@ -5,5 +5,4 @@ const PROXY_CONFIG = [{
   target: 'xxx:8080',
   secure: false
 }]
-const exports = module.exports;
-exports = PROXY_CONFIG;
+module.exports = PROXY_CONFIG;
