@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService
   ) {
     this.LoginForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      username: [null, [Validators.required]],
       password: [null, [Validators.required]]
     });
   }
@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit {
     if (this.LoginForm.valid) {
       this.app.spinSubject.next();
       this.passport.login(v).subscribe(res => {
+        
         this.tokenService.set({
           token: res.data.token,
-          name: res.data.name,
-          id: res.data.id
+          res:res.data
         });
         this.app.spinSubject.next();
         this.router.navigateByUrl("layout-default");

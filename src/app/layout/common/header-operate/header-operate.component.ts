@@ -20,7 +20,7 @@ export class HeaderOperateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = this.tokenService.get().name;
+    this.user = this.tokenService.get().res.userName;
     this.notice();
     this.msg();
   }

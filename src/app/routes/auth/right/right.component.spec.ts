@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthIndexComponent } from './auth-index.component';
+import { RightComponent } from './right.component';
 
-describe('AuthIndexComponent', () => {
-  let component: AuthIndexComponent;
-  let fixture: ComponentFixture<AuthIndexComponent>;
+describe('RightComponent', () => {
+  let component: RightComponent;
+  let fixture: ComponentFixture<RightComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthIndexComponent ]
+      declarations: [ RightComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthIndexComponent);
+    fixture = TestBed.createComponent(RightComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

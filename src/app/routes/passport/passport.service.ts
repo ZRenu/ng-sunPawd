@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 export class PassportService {
   constructor(private http: HttpClient) {}
   /** 用户登录 */
-  login(params: { userName: string; password: string }): Observable<any> {
-    return this.http.post("/login?_allow_anonymous=true", { params });
+  login(params: { userAccount: string; password: string }): Observable<any> {
+    return this.http.post("/api/login?_allow_anonymous=true",null, { params });
   }
 }

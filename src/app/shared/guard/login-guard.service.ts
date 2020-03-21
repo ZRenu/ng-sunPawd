@@ -26,6 +26,7 @@ export class LoginGuardService implements CanActivate {
   checkLogin(): boolean {
     // 判断本地有没有token
     const token = this.tokenService.get().token;
+    console.log('token',token);
 
     // 如果token有值，表示登录成功，继续跳转，否则跳转到首页
     if (token) {

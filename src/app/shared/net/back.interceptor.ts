@@ -42,25 +42,20 @@ export class BackInterceptor implements HttpInterceptor {
           switch (body.status) {
             case 10101:
               this.notice.Notification("登录提示", body.message);
+              break;
+              default:
+              break;
           }
         }
         break;
-      case 401:
-        // this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
-        // // 清空 token 信息
-        // (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
-        // this.goTo("/passport/login");
-        break;
-      case 403:
-      case 404:
       case 500:
-        // this.goTo(`/exception/${ev.status}`);
+        this.notice.Notification("登录提示", ev['error'].message);
         break;
       default:
         if (ev instanceof HttpErrorResponse) {
           console.warn(
             "未可知错误，大部分是由于后端不支持CORS或无效配置引起",
-            ev
+
           );
         }
         break;

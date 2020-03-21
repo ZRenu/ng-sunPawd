@@ -1,21 +1,21 @@
 import { Routes, RouterModule } from "@angular/router";
-import { AuthIndexComponent } from "./auth-index/auth-index.component";
-import { AuthUserComponent } from "./auth-user/auth-user.component";
+import { UserComponent } from './user/user.component';
+import { RightComponent } from './right/right.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "index", pathMatch: "full" },
+  { path: "", redirectTo: "user", pathMatch: "full" },
   {
-    path: "index",
-    component: AuthIndexComponent,
+    path: "user",
+    component: UserComponent,
     data: {
-      breadcrumb: "角色列表"
+      breadcrumb: "成员管理"
     }
   },
   {
-    path: "user",
-    component: AuthUserComponent,
+    path: "right",
+    component: RightComponent,
     data: {
-      breadcrumb: "用户列表"
+      breadcrumb: "权限管理"
     }
   }
 ];

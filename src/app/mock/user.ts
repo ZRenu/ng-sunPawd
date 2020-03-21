@@ -1,6 +1,6 @@
 import { MockRequest } from "@delon/mock";
 export const USERS = {
-  "POST /login": (req: MockRequest) => {
+  "POST /api/login": (req: MockRequest) => {
     const data = req.body;
     if (data.params.userName === "admin" && data.params.password === "1234") {
       return {

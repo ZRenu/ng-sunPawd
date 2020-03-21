@@ -87,12 +87,12 @@ export class IndexComponent implements OnInit {
       buttons: [
         {
           text: "添加",
-          mark: "add"
+          mark: "A"
         },
         {
           text: "删除",
           type: "danger",
-          mark: "del"
+          mark: "B"
         }
       ]
     }
@@ -108,12 +108,12 @@ export class IndexComponent implements OnInit {
   }
   tbChange(e: TBChange) {
     switch (e.tbBtnMark) {
-      case "add":
-        console.log("add");
+      case "A":
+        console.log("A");
         console.log(e.rowData);
         break;
-      case "del":
-        console.log("del");
+      case "B":
+        console.log("B");
         console.log(e.rowData);
         break;
       default:

@@ -157,7 +157,7 @@ export interface TBColumButton {
    * del 删除
    *
    */
-  mark?: "add" | "update" | "del";
+  mark?: "A" | "B" | "C" | 'D' | 'E';
 }
 
 export type TBChangeType =

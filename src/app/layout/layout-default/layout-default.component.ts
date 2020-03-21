@@ -11,11 +11,14 @@ import { AppService } from "src/app/shared/services/app.service";
   styleUrls: ["./layout-default.component.less"]
 })
 export class LayoutDefaultComponent implements OnInit {
+  applyName='SUN PAWD BY RENU 后台管理系统前端框架';
   isCollapsed = false;
   constructor(
     private http: HttpClient,
-    private app: AppService
+    private app: AppService,
+    @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService,
   ) {}
   ngOnInit() {
+    this.applyName = this.tokenService.get().res.applyName;
   }
 }

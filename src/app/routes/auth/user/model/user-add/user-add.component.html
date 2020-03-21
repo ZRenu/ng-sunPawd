@@ -1,0 +1,51 @@
+<nz-spin nzTip="数据上传中..." [nzSpinning]="tip">
+    <form nz-form [formGroup]="userForm" class="equ-info-model" (ngSubmit)="submitForm($event, userForm.value)">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+          姓名
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入姓名">
+          <input nz-input formControlName="userName" placeholder="请输入姓名" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+          帐号
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入6-12位帐号">
+          <input nz-input formControlName="loginName" placeholder="请输入6-12位帐号" [disabled]="userData" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+          密码
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入6-12位密码">
+          <input nz-input formControlName="password" placeholder="请输入6-12位密码" type="password" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>手机号码</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzValidateStatus]="userForm.controls['phoneNumber']"
+          nzErrorTip="请输入密码正确的手机号码">
+          <input formControlName="phone" nz-input placeholder="请输入手机号码" />
+        </nz-form-control>
+        <!-- <nz-form-explain *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+              <ng-container *ngIf="phone.errors.pattern"> 请输入正确的手机号，仅支持中国大陆手机号码</ng-container>
+            </nz-form-explain> -->
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">备注信息</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="请输入备注信息">
+          <textarea formControlName="memo" nz-input rows="4" placeholder="请输入备注信息"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzOffset]="7" [nzSpan]="12">
+          <button nz-button style="margin-right: 50px" (click)="resetForm($event)">重置</button>
+          <button nz-button nzType="primary" [disabled]="!userForm.valid">确认</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-spin>
+  

@@ -20,7 +20,7 @@ const children = [
     }
   },
   {
-    path: "auth",
+    path: "userRight",
     loadChildren: "./routes/auth/auth.module#AuthModule",
     data: {
       breadcrumb: "角色权限"

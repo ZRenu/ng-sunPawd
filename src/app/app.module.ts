@@ -36,7 +36,7 @@ registerLocaleData(zh);
     AppRoutingModule,
     IconsProviderModule,
     BrowserAnimationsModule,
-    DelonMockModule.forRoot({ data: MOCKDATA })
+    // DelonMockModule.forRoot({ data: MOCKDATA })
   ],
   providers: [
     { provide: DelonAuthConfig, useFactory: delonAuthConfig },

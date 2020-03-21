@@ -1,0 +1,21 @@
+<div class="search">
+    <div class="search-title">
+      <i nz-icon nzType="search" nzTheme="outline"></i>
+      <label style="margin-left: 5px">筛选查询</label>
+    </div>
+    <div class="search-main">
+      <input nz-input placeholder="搜索姓名" [(ngModel)]="params.userName" />
+      <input nz-input placeholder="搜索手机号码" [(ngModel)]="params.phone" />
+      <button nz-button nzType="primary" (click)="search()">搜索</button>
+      <button nz-button nzType="primary" (click)="clean()">重置</button>
+      <button nz-button nzType="primary" (click)="add()">添加成员</button>
+    </div>
+  </div>
+  <div class="table">
+    <tb [tbData]="tbData" (change)="tbChange($event)"></tb>
+  </div>
+  <nz-modal [(nzVisible)]="isVisible" [nzTitle]="nzTitle" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzFooter]="null" [nzMaskClosable]="false">
+  <app-user-add [userData]="userData" (sub)="sub()" [change]="change" *ngIf="!userId"></app-user-add>
+  <app-user-dis [userId]="userId" (userSave)="sub()" *ngIf="userId"></app-user-dis>
+</nz-modal>
