@@ -12,6 +12,7 @@
           {{data[column?.index]}}
           <ng-container *ngFor="let btn of column?.buttons;let b = index">
             <button nz-button [nzType]="btn.type" (click)="click($event,i,data,btn.mark)">{{btn.text}}</button>
+            <nz-divider nzType="vertical" *ngIf="(column?.buttons.length-1)!==b"></nz-divider>
           </ng-container>
         </td>
       </ng-container>

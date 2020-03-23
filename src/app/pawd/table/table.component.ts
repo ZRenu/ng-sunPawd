@@ -24,19 +24,9 @@ export class TbleComponent {
   /**
    * 变化时回调，包括：`pi`、`ps`、`checkbox`、`radio`、`sort`、`filter`、`click`、`dblClick` 变动
    */
-  // @Output() readonly change = new EventEmitter<TBChange>();
   // tslint:disable-next-line: no-output-native
   @Output() readonly change = new EventEmitter<any>();
   constructor() {}
-  // ngAfterViewInit(): void {
-  //   throw new Error("Method not implemented.");
-  // }
-  // ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-  //   throw new Error("Method not implemented.");
-  // }
-  // ngOnDestroy(): void {
-  //   throw new Error("Method not implemented.");
-  // }
   click(e: Event, i: number, data: {}, mark: string) {
     e.preventDefault();
     e.stopPropagation();

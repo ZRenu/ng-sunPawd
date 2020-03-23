@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Table, TBColumn, TBChange } from "src/app/pawd/table/table.interface";
+import { NzModalService } from "ng-zorro-antd";
 const listOfData = [
   {
     key: "1",
@@ -33,7 +34,7 @@ const listOfData = [
 })
 export class IndexComponent implements OnInit {
   @ViewChild("tb", { static: true }) tb: ElementRef;
-  constructor() {}
+  constructor(private modalService: NzModalService) {}
   column: TBColumn[] = [
     {
       title: "姓名",
@@ -113,8 +114,18 @@ export class IndexComponent implements OnInit {
         console.log(e.rowData);
         break;
       case "B":
-        console.log("B");
-        console.log(e.rowData);
+        this.modalService.confirm({
+          nzTitle: "系统提示",
+          nzContent: '<b style="color: red;">是否确认删除？</b>',
+          nzOkText: "确定",
+          nzOkType: "danger",
+          nzOnOk: () => {
+            console.log("B");
+            console.log(e.rowData);
+          },
+          nzCancelText: "取消",
+          nzOnCancel: () => {}
+        });
         break;
       default:
         break;

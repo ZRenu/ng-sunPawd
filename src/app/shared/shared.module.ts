@@ -12,7 +12,7 @@ const SHAREDS = [
   RouterModule,
   ReactiveFormsModule,
   FormsModule,
-  HttpClientModule
+  HttpClientModule,
 ];
 const PIPE = [DemoPipe];
 @NgModule({

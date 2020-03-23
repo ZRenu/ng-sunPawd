@@ -11,8 +11,6 @@
       <app-sider [isCollapsed]="isCollapsed"></app-sider>
     </nz-sider>
     <nz-layout class="content">
-      <nz-breadcrumb [ngStyle]="{'padding-left':isCollapsed?'104px':'225px'}" [nzAutoGenerate]="true">
-      </nz-breadcrumb>
       <nz-content>
         <div class="inner-content" [ngStyle]="{'margin-left':isCollapsed?'104px':'224px'}">
           <router-outlet>

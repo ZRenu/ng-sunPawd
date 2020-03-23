@@ -128,7 +128,10 @@ export interface TBIcon {
   /** 指定来自 IconFont 的图标类型 */
   iconfont?: string;
   // 点击回调
-  click?: "reload" | "load" | ((record: TBData, instance?: TbleComponent) => any);
+  click?:
+    | "reload"
+    | "load"
+    | ((record: TBData, instance?: TbleComponent) => any);
   // 权限
   auth?: any;
 }
@@ -157,9 +160,8 @@ export interface TBColumButton {
    * del 删除
    *
    */
-  mark?: "A" | "B" | "C" | 'D' | 'E';
+  mark?: "A" | "B" | "C" | "D" | "E";
 }
-
 export type TBChangeType =
   | "loaded"
   | "pi"
@@ -175,9 +177,9 @@ export type TBChangeType =
  * 回调数据
  */
 export interface TBChange {
- /**
-  * index
-  */
+  /**
+   * index
+   */
   i?: number;
   e?: Event;
   /**
@@ -207,7 +209,7 @@ export interface TBChange {
   /**
    * 行数据
    */
-  rowData?: {};
+  rowData?: any;
   /**
    * 表格按钮标示
    *
