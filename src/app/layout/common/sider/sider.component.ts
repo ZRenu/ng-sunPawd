@@ -15,9 +15,8 @@ export class SiderComponent implements OnInit {
     this.menu();
   }
   menu() {
-    this.http.get("/api/user/menus").subscribe((m:any) => {
-    this.menus = m.data;
-
+    this.http.get("/menus").subscribe((m: any) => {
+      this.menus = m;
     });
   }
 }
