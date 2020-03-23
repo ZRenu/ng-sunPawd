@@ -34,10 +34,9 @@ export class LoginComponent implements OnInit {
     if (this.LoginForm.valid) {
       this.app.spinSubject.next();
       this.passport.login(v).subscribe(res => {
-        
         this.tokenService.set({
           token: res.data.token,
-          res:res.data
+          res: res.data
         });
         this.app.spinSubject.next();
         this.router.navigateByUrl("layout-default");
