@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class SiderComponent implements OnInit {
   @Input() isCollapsed: boolean;
+  @Output() activeLink = new EventEmitter<any>();
   menus = [];
   constructor(private http: HttpClient) {}
 
@@ -18,5 +19,8 @@ export class SiderComponent implements OnInit {
     this.http.get("/menus").subscribe((m: any) => {
       this.menus = m;
     });
+  }
+  change(m: any) {
+    this.activeLink.emit(m);
   }
 }

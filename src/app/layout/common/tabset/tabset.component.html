@@ -1,0 +1,10 @@
+<nz-tabset [nzType]="'card'" [nzTabPosition]="'top'" [hidden]="!tabs.length" [ngStyle]="{'padding-left': width}"
+  [nzSelectedIndex]="index" (nzSelectedIndexChange)="SelectChange([$event])">
+  <nz-tab *ngFor="let tab of tabs;let i=index" [nzTitle]="titleTemplate">
+    <ng-template #titleTemplate>
+      <a [routerLink]="[tab.path]" [ngStyle]="{'color': index === i? '#1890ff':'#333'}"
+        class="tab">{{tab.menuTitle}}</a>
+      <i nz-icon nzType="close" (click)="close(tab,i)" class="ant-tabs-close-x"></i>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>

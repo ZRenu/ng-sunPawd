@@ -8,6 +8,7 @@ import { ExceptionComponent } from "./exception/exception.component";
 import { LayoutDefaultComponent } from "./layout-default/layout-default.component";
 import { SiderComponent } from "./common/sider/sider.component";
 import { HeaderOperateComponent } from "./common/header-operate/header-operate.component";
+import { TabsetComponent } from './common/tabset/tabset.component';
 const LAYOUTS = [
   LayoutOneComponent,
   LayoutTwoComponent,
@@ -16,7 +17,8 @@ const LAYOUTS = [
   ExceptionComponent,
   LayoutDefaultComponent,
   SiderComponent,
-  HeaderOperateComponent
+  HeaderOperateComponent,
+  TabsetComponent
 ];
 @NgModule({
   declarations: [...LAYOUTS],

@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Inject } from "@angular/core";
 import { DA_SERVICE_TOKEN, ITokenService, TokenService } from "@delon/auth";
-import { Router } from "@angular/router";
-import { fromEvent } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { AppService } from "src/app/shared/services/app.service";
 
@@ -11,8 +9,10 @@ import { AppService } from "src/app/shared/services/app.service";
   styleUrls: ["./layout-default.component.less"]
 })
 export class LayoutDefaultComponent implements OnInit {
+  num = 0;
   applyName = "";
   isCollapsed = false;
+  tabs = [];
   constructor(
     private http: HttpClient,
     private app: AppService,
@@ -20,5 +20,12 @@ export class LayoutDefaultComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.applyName = this.tokenService.get().res.applyName;
+  }
+  active(e: Event) {
+    this.num = Math.random();
+    this.tabs.push(e);
+  }
+  closeTab(e: { e: Event; i: number }) {
+    this.tabs.splice(e.i, 1);
   }
 }

@@ -83,7 +83,7 @@ export class IndexComponent implements OnInit {
     },
     {
       title: "操作",
-      nzWidth: "150px",
+      nzWidth: "200px",
       nzRight: "0px",
       buttons: [
         {
