@@ -101,6 +101,19 @@ export interface TBColumn {
   nzShowFilter?: boolean;
   // 按钮组
   buttons?: TBColumButton[];
+  /** 自定义列需要的字段 */
+  /**
+   *  列标题
+   */
+  label?: string;
+  /**
+   * 列数据在数据项中对应的 key
+   */
+  value?: string;
+  /**
+   * 是否确定展示本列
+   */
+  checked?: boolean;
 }
 // 图标配置
 export interface TBIcon {
