@@ -53,6 +53,8 @@ export interface Table {
    * 无数据时显示内容
    */
   nzNoResult?: string;
+  /** 选择框 */
+  Checked?: boolean;
 }
 /**
  * 列描述
@@ -89,31 +91,16 @@ export interface TBColumn {
    * 设置列内容的对齐方式
    */
   nzAlign?: "left" | "right" | "center";
+  /**
+   * 排序key，非受控模式使用，与 thead 中 nzSortChange 配合使用
+   */
+  nzSortKey?: string;
+  /**
+   * 是否显示过滤
+   */
+  nzShowFilter?: boolean;
   // 按钮组
   buttons?: TBColumButton[];
-}
-/**
- * 数据源
- */
-export interface TBData {
-  /**
-   * 选择框或单选框状态值
-   */
-  checked?: boolean;
-  /**
-   * 选择框或单选框 `disabled` 值
-   */
-  disabled?: boolean;
-  /**
-   * 是否展开状态
-   */
-  expand?: boolean;
-  /**
-   * 是否显示展开按钮
-   */
-  showExpand?: boolean;
-
-  [key: string]: any;
 }
 // 图标配置
 export interface TBIcon {
@@ -127,11 +114,6 @@ export interface TBIcon {
   twoToneColor?: string;
   /** 指定来自 IconFont 的图标类型 */
   iconfont?: string;
-  // 点击回调
-  click?:
-    | "reload"
-    | "load"
-    | ((record: TBData, instance?: TbleComponent) => any);
   // 权限
   auth?: any;
 }
@@ -197,15 +179,15 @@ export interface TBChange {
   /**
    * `loaded` 参数
    */
-  loaded?: TBData[];
+  // loaded?: TBData[];
   /**
    * `checkbox` 参数
    */
-  checkbox?: TBData[];
+  checkbox?: [];
   /**
-   * `radio` 参数
+   * 排序
    */
-  radio?: TBData;
+  sort?: {};
   /**
    * 行数据
    */

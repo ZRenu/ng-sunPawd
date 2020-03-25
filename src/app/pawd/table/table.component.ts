@@ -5,15 +5,10 @@ import {
   OnDestroy,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
+  OnInit
 } from "@angular/core";
-import {
-  Table,
-  TBData,
-  TBColumButton,
-  TBChange,
-  TBColumn
-} from "./table.interface";
+import { Table, TBChange } from "./table.interface";
 @Component({
   // tslint:disable-next-line: component-selector
   selector: "tb",
@@ -21,6 +16,9 @@ import {
 })
 export class TbleComponent {
   @Input() tbData: Table;
+  isAllDisplayDataChecked = false;
+  isIndeterminate = false;
+
   /**
    * 变化时回调，包括：`pi`、`ps`、`checkbox`、`radio`、`sort`、`filter`、`click`、`dblClick` 变动
    */
@@ -35,6 +33,35 @@ export class TbleComponent {
       e,
       rowData: data,
       tbBtnMark: mark
+    };
+    this.change.emit(res);
+  }
+
+  refreshStatus(): void {
+    this.isAllDisplayDataChecked = this.tbData.nzData.every(
+      (item: { checked: any }) => item.checked
+    );
+    this.isIndeterminate =
+      this.tbData.nzData.some((item: { checked: any }) => item.checked) &&
+      !this.isAllDisplayDataChecked;
+    this.changeEmit();
+  }
+
+  checkAll(value: boolean): void {
+    this.tbData.nzData.forEach(
+      (item: { checked: boolean }) => (item.checked = value)
+    );
+    this.changeEmit();
+  }
+  changeEmit() {
+    const res: TBChange = {
+      checkbox: this.tbData.nzData
+    };
+    this.change.emit(res);
+  }
+  sort(value: any) {
+    const res: TBChange = {
+      sort: value
     };
     this.change.emit(res);
   }

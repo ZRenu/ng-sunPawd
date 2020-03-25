@@ -3,28 +3,18 @@ import { Table, TBColumn, TBChange } from "src/app/pawd/table/table.interface";
 import { NzModalService } from "ng-zorro-antd";
 const listOfData = [
   {
-    key: "1",
+    id: "5",
     name: "John Brown",
     age: 32,
     address: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address1: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address2: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address3: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address4: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address5: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address6: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. "
+    checked: false
   },
   {
-    key: "2",
+    id: "6",
     name: "John",
     age: 33,
     address: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address1: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address2: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address3: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address4: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address5: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. ",
-    address6: "New York No. 1 Lake Park New York No. 1 Lake ParkNew York No. "
+    checked: false
   }
 ];
 @Component({
@@ -39,12 +29,14 @@ export class IndexComponent implements OnInit {
     {
       title: "姓名",
       index: "name",
-      nzWidth: "100px"
+      nzWidth: "100px",
+      nzSortKey: "name"
     },
     {
       title: "年龄",
       index: "age",
-      nzWidth: "150px"
+      nzWidth: "150px",
+      nzSortKey: "age"
     },
     {
       title: "地址",
@@ -52,39 +44,8 @@ export class IndexComponent implements OnInit {
       nzWidth: "150px"
     },
     {
-      title: "地址",
-      index: "address1",
-      nzWidth: "150px"
-    },
-    {
-      title: "地址",
-      index: "address2",
-      nzWidth: "150px"
-    },
-    {
-      title: "地址",
-      index: "address3",
-      nzWidth: "150px"
-    },
-    {
-      title: "地址",
-      index: "address4",
-      nzWidth: "150px"
-    },
-    {
-      title: "地址",
-      index: "address5",
-      nzWidth: "150px"
-    },
-    {
-      title: "地址",
-      index: "address6",
-      nzWidth: "150px"
-    },
-    {
       title: "操作",
-      nzWidth: "200px",
-      nzRight: "0px",
+      nzWidth: "150px",
       buttons: [
         {
           text: "添加",
@@ -102,12 +63,21 @@ export class IndexComponent implements OnInit {
     nzData: listOfData,
     nzLoading: true,
     column: this.column,
-    nzScroll: { x: "2000px" }
+    Checked: false
   };
   ngOnInit() {
     this.tbData.nzLoading = false;
   }
   tbChange(e: TBChange) {
+    if (e.sort) {
+      console.log("sort", e.sort);
+    }
+    if (e.checkbox) {
+      const arr = e.checkbox.filter(
+        (item: { checked: boolean }) => item.checked
+      );
+      console.log(arr);
+    }
     switch (e.tbBtnMark) {
       case "A":
         console.log("A");

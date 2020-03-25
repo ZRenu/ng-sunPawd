@@ -33,6 +33,5 @@ export class TabsetComponent implements OnInit, OnChanges {
   }
   SelectChange(e: any) {
     this.index = e[0];
-    console.log(e);
   }
 }

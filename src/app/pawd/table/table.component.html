@@ -1,14 +1,18 @@
 <nz-table #basicTable [nzData]="tbData.nzData" [nzScroll]="tbData.nzScroll" [nzLoading]="tbData.nzLoading">
-  <thead>
+  <thead (nzSortChange)="sort($event)" nzSingleSort>
     <tr>
-      <th nzShowCheckbox></th>
-      <th *ngFor="let column of tbData.column" [nzWidth]="column.nzWidth" [nzLeft]="column.nzLeft"
-        [nzRight]="column.nzRight">{{column.title}}</th>
+      <th nzShowCheckbox nzWidth="150px" [nzIndeterminate]="isIndeterminate" (nzCheckedChange)="checkAll($event)"
+        [(nzChecked)]="isAllDisplayDataChecked" *ngIf="tbData.Checked">
+      </th>
+      <th [nzShowSort]="column.nzSortKey" *ngFor="let column of tbData.column" [nzWidth]="column.nzWidth"
+        [nzLeft]="column.nzLeft" [nzRight]="column.nzRight" [nzSortKey]="column.nzSortKey"
+        [nzShowFilter]="column.nzShowFilter">{{column.title}}
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data;let i = index">
-      <td nzShowCheckbox></td>
+      <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()" *ngIf="tbData.Checked"></td>
       <ng-container *ngFor="let  column of tbData.column;let i=index">
         <td [nzLeft]="column.nzLeft" [nzRight]="column.nzRight">
           {{data[column?.index]}}
