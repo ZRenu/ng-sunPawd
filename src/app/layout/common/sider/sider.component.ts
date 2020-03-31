@@ -9,6 +9,7 @@ import { HttpClient } from "@angular/common/http";
 export class SiderComponent implements OnInit {
   @Input() isCollapsed: boolean;
   @Output() activeLink = new EventEmitter<any>();
+  @Input() nzTheme: string;
   menus = [];
   constructor(private http: HttpClient) {}
 

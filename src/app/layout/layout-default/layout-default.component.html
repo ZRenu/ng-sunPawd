@@ -3,26 +3,26 @@
   <nz-header>
     <span> {{applyName}}</span>
     <div class="header-right">
-      <app-header-operate></app-header-operate>
+      <app-logout [out]="out"></app-logout>
     </div>
   </nz-header>
   <nz-layout class="inner-layout">
-    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" (click)="change()">
       <app-sider [isCollapsed]="isCollapsed" (activeLink)="active($event)"></app-sider>
     </nz-sider>
-    <nz-layout class="content">
-      <nz-content>
-        <div class="inner-content" [ngStyle]="{'padding-left':isCollapsed?'104px':'224px'}">
-          <app-tabset [tabs]="tabs" [width]="isCollapsed?'0':'0'" (closeTab)="closeTab($event)" [num]="num">
-          </app-tabset>
+    <nz-content [ngStyle]="{'width': win }">
+      <div class="inner-content" [ngStyle]="{'padding-left':isCollapsed?'104px':'224px'}">
+        <app-tabset [tabs]="tabs" [width]="isCollapsed?'0':'0'" (closeTab)="closeTab($event)" [num]="num">
+        </app-tabset>
+        <div class="content">
           <router-outlet></router-outlet>
         </div>
-        <nz-footer [ngStyle]="{'margin-left':isCollapsed?'8px':'200px'}"><a href="https://github.com/ZRenu/ng-sunPawd"
-            target="_blank" style="outline: none;color: #1890ff;">Sun
-            Public
-            Admin Web-design</a> ©2020 By <a href="https://www.zhourenu.com/" target="_blank"
-            style="outline: none;color: #1890ff;">Renu</a></nz-footer>
-      </nz-content>
-    </nz-layout>
+      </div>
+      <nz-footer [ngStyle]="{'margin-left':isCollapsed?'8px':'200px'}"><a href="https://github.com/ZRenu/ng-sunPawd"
+          target="_blank" style="outline: none;color: #1890ff;">Sun
+          Public
+          Admin Web-design</a> ©2020 By <a href="https://www.zhourenu.com/" target="_blank"
+          style="outline: none;color: #1890ff;">Renu</a></nz-footer>
+    </nz-content>
   </nz-layout>
 </nz-layout>

@@ -13,16 +13,29 @@
   <tbody>
     <tr *ngFor="let data of basicTable.data;let i = index">
       <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()" *ngIf="tbData.Checked"></td>
-      <ng-container *ngFor="let  column of tbData.column;let i=index">
+      <ng-container *ngFor="let column of tbData.column;let i=index">
         <td [nzLeft]="column.nzLeft" [nzRight]="column.nzRight">
           {{data[column?.index]}}
-          <ng-container *ngFor="let btn of column?.buttons;let b = index">
-            <button nz-button [nzType]="btn.type" (click)="click($event,i,data,btn.mark)">{{btn.text}}</button>
-            <nz-divider nzType="vertical" *ngIf="(column?.buttons.length-1)!==b"></nz-divider>
+          <ng-container [ngTemplateOutlet]="btn" [ngTemplateOutletContext]="{ $implicit: i,data:data,column:column}"
+            *ngIf="tbData.btnStyle">
+          </ng-container>
+          <ng-container [ngTemplateOutlet]="btnLink"
+            [ngTemplateOutletContext]="{ $implicit: i, data:data,column:column}" *ngIf="!tbData.btnStyle">
           </ng-container>
         </td>
       </ng-container>
-
     </tr>
   </tbody>
 </nz-table>
+<ng-template #btn let-i let-data="data" let-column="column">
+  <ng-container *ngFor="let btn of column?.buttons;let b = index">
+    <button nz-button [nzType]="btn.type" (click)="click($event,i,data,btn.mark)">{{btn.text}}</button>
+    <nz-divider nzType="vertical" *ngIf="(column?.buttons.length-1)!==b"></nz-divider>
+  </ng-container>
+</ng-template>
+<ng-template #btnLink let-i let-data="data" let-column="column">
+  <ng-container *ngFor="let btn of column?.buttons;let b = index">
+    <a class="links" (click)="click($event,i,data,btn.mark)"
+      [ngStyle]="{'width':btn.width,'color':btn.linkColor}">{{btn.text}}</a>
+  </ng-container>
+</ng-template>

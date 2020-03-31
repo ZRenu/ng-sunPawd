@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
   <div class="notice">
     <a nz-dropdown class="header-item" [nzDropdownMenu]="notice" [nzPlacement]="'bottomRight'" nzTrigger="click">
       <nz-badge nzDot>
@@ -75,4 +75,18 @@
       <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline"></i>退出登录</li>
     </ul>
   </nz-dropdown-menu>
+</div> -->
+<div class="header-right">
+  <div class="header" [ngClass]="operate.them === 'light'? 'lightHover':'darkHover'">
+    <a nz-dropdown [nzDropdownMenu]="menu" class="header-item">
+      {{user}}
+    </a>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item><i nz-icon nzType="unlock" nzTheme="outline"></i>修改密码</li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline"></i>退出登录</li>
+      </ul>
+    </nz-dropdown-menu>
+  </div>
 </div>

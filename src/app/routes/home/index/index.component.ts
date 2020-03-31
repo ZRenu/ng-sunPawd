@@ -41,11 +41,17 @@ export class IndexComponent implements OnInit {
     {
       title: "地址",
       index: "address",
-      nzWidth: "150px"
+      nzWidth: "300px"
+    },
+    {
+      title: "地址",
+      index: "address",
+      nzWidth: "300px"
     },
     {
       title: "操作",
       nzWidth: "150px",
+      nzRight: "0px",
       buttons: [
         {
           text: "添加",
@@ -53,13 +59,13 @@ export class IndexComponent implements OnInit {
         },
         {
           text: "删除",
-          type: "danger",
           mark: "B"
         }
       ]
     }
   ];
   tbData: Table = {
+    btnStyle: "",
     nzData: listOfData,
     nzLoading: true,
     column: this.column,

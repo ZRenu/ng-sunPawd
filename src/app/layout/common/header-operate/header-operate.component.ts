@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Input } from "@angular/core";
 import { DA_SERVICE_TOKEN, TokenService } from "@delon/auth";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
@@ -13,6 +13,7 @@ export class HeaderOperateComponent implements OnInit {
   loading = false;
   sourceData = [];
   data = [];
+  @Input() operate: Operatec = {};
   constructor(
     @Inject(DA_SERVICE_TOKEN) private tokenService: TokenService,
     private http: HttpClient,
@@ -38,4 +39,8 @@ export class HeaderOperateComponent implements OnInit {
     this.tokenService.clear();
     this.router.navigateByUrl(this.tokenService.login_url);
   }
+}
+export interface Operatec {
+  color?: string;
+  them?: "light" | "dark";
 }

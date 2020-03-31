@@ -14,14 +14,14 @@ import {
 })
 export class TabsetComponent implements OnInit, OnChanges {
   index = 0;
-  @Input() num: number;
+  @Input() num: string;
   @Input() tabs = [];
   @Input() width = "";
   @Output() closeTab = new EventEmitter<any>();
   constructor() {}
   ngOnChanges(): void {
     if (this.tabs.length) {
-      this.index = this.tabs.length - 1;
+      this.index = this.tabs.findIndex(e => e.id === this.num);
     } else {
       this.index = 0;
     }

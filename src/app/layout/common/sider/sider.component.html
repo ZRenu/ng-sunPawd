@@ -1,4 +1,4 @@
-<ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="padding-bottom: 24px;"
+<ul nz-menu [nzTheme]="nzTheme" nzMode="inline" [nzInlineCollapsed]="isCollapsed" style="padding-bottom: 24px;"
   class="sider">
   <ng-container *ngFor="let menu of menus">
     <li nz-submenu *ngIf="menu.children.length">

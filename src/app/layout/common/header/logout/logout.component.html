@@ -1,0 +1,12 @@
+<div [ngClass]="out.them === 'light'? 'lightHover':'darkHover'">
+  <a nz-dropdown [nzDropdownMenu]="menu" class="header-item">
+    {{user}}
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item><i nz-icon nzType="unlock" nzTheme="outline"></i>修改密码</li>
+      <li nz-menu-divider></li>
+      <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline"></i>退出登录</li>
+    </ul>
+  </nz-dropdown-menu>
+</div>

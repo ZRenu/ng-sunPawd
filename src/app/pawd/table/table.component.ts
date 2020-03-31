@@ -12,7 +12,8 @@ import { Table, TBChange } from "./table.interface";
 @Component({
   // tslint:disable-next-line: component-selector
   selector: "tb",
-  templateUrl: "./table.component.html"
+  templateUrl: "./table.component.html",
+  styleUrls: ["./table.style.less"]
 })
 export class TbleComponent {
   @Input() tbData: Table;

@@ -1,23 +1,27 @@
 const menu = [
   {
+    id: "001",
     menuTitle: "首页",
-    path: "/layout-default/home/index",
+    path: "home/index",
     icon: "home",
     children: []
   },
   {
+    id: "002",
     menuTitle: "角色权限",
     path: "",
     icon: "usergroup-delete",
     children: [
       {
+        id: "003",
         menuTitle: "权限管理",
-        path: "/layout-default/userRight/right",
+        path: "userRight/right",
         icon: ""
       },
       {
+        id: "004",
         menuTitle: "成员管理",
-        path: "/layout-default/userRight/user",
+        path: "userRight/user",
         icon: ""
       }
     ]

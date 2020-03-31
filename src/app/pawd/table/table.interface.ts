@@ -55,6 +55,12 @@ export interface Table {
   nzNoResult?: string;
   /** 选择框 */
   Checked?: boolean;
+  /**
+   * 按钮风格
+   * 空 link
+   * 按钮 type
+   */
+  btnStyle: string;
 }
 /**
  * 列描述
@@ -137,7 +143,7 @@ export interface TBColumButton {
   /**
    * 文本
    */
-  text?: string;
+  text: string;
   /**
    * 图标
    */
@@ -146,6 +152,12 @@ export interface TBColumButton {
    * 按钮类型
    */
   type?: "primary" | "dashed" | "danger" | "default" | "link";
+  /** link按钮颜色 */
+  linkColor?: string;
+  /**
+   * 按钮宽度
+   */
+  width?: string;
   // 权限
   auth?: any;
   /**
@@ -155,7 +167,7 @@ export interface TBColumButton {
    * del 删除
    *
    */
-  mark?: "A" | "B" | "C" | "D" | "E";
+  mark: "A" | "B" | "C" | "D" | "E";
 }
 export type TBChangeType =
   | "loaded"
