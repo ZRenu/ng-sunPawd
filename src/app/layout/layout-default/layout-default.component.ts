@@ -55,7 +55,7 @@ export class LayoutDefaultComponent implements OnInit {
     this.tabs.splice(e.i, 1);
     if (this.tabs.length) {
       const t = this.tabs[this.tabs.length - 1];
-      const path = "/layout-default/" + t.path;
+      const path = "/layout-one/" + t.path;
       this.router.navigateByUrl(path);
     }
   }

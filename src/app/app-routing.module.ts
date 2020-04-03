@@ -5,7 +5,7 @@ import { PassportComponent } from "./layout/passport/passport.component";
 import { ExceptionComponent } from "./layout/exception/exception.component";
 import { LoginGuardService } from "./shared/guard/login-guard.service";
 import { LayoutDefaultComponent } from "./layout/layout-default/layout-default.component";
-const defaultLayout = "layout-default";
+const defaultLayout = "layout-one";
 const canActivate = [LoginGuardService];
 const exceptionChildren = [{}];
 const children = [

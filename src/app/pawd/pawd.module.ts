@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { TbModule } from "./table/table.module";
-const MODULES = [TbModule];
+import { PickerModule } from './picker/picker.module';
+const MODULES = [TbModule, PickerModule];
 @NgModule({ exports: MODULES })
 export class PawdModule {}

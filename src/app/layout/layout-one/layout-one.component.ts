@@ -15,6 +15,7 @@ export class LayoutOneComponent implements OnInit {
   tabs = [];
   num = "";
   win = "";
+  wh = "";
   out: Logout = {
     them: "light"
   };
@@ -29,8 +30,10 @@ export class LayoutOneComponent implements OnInit {
   viewSize() {
     if (!this.isCollapsed) {
       this.win = window.innerWidth - 304 + "px";
+      this.wh = window.innerWidth - 256 + "px";
     } else {
       this.win = window.innerWidth - 128 + "px";
+      this.wh = window.innerWidth - 80 + "px";
     }
   }
   change() {

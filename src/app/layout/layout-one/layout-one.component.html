@@ -7,7 +7,7 @@
     <app-sider [isCollapsed]="isCollapsed" [nzTheme]="nzTheme" (activeLink)="active($event)"></app-sider>
   </nz-sider>
   <nz-layout>
-    <nz-header>
+    <nz-header [ngStyle]="{'width': wh }">
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed" (click)="change()">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>

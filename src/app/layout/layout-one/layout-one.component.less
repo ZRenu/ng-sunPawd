@@ -9,6 +9,14 @@
   height: 100vh;
 }
 
+.ant-layout-header {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 24px;
+  min-width: 800px;
+}
+
 .menu-sidebar {
   position: relative;
   z-index: 10;
@@ -56,21 +64,21 @@
 }
 
 nz-header {
-  padding: 0;
+  position: fixed;
   width: 100%;
+  padding-right: 24px;
   z-index: 2;
   display: flex;
-  justify-content: space-between;
-  padding-right: 24px;
   background: #fff;
+
 }
 
 .app-header {
   position: relative;
   height: 64px;
-  padding: 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+
 }
 
 nz-content {
@@ -78,7 +86,9 @@ nz-content {
 }
 
 .inner-content {
+  margin: 90px auto 24px auto;
   padding: 24px;
   background: #fff;
-  height: 100%;
+  height: 2000px;
+  min-width: 800px;
 }

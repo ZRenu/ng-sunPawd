@@ -1,0 +1,11 @@
+<nz-range-picker [nzDateRender]="tplRender" [nzAllowClear]="picker?.nzAllowClear" [nzFormat]="picker?.Format"
+  [(ngModel)]="picker.data.dateRange" (ngModelChange)="onChange($event)" *ngIf="picker.type==='range'">
+</nz-range-picker>
+<ng-template #tplRender let-current>
+  <div class="ant-calendar-date" [class.border]="current.getDate() === 1">
+    {{ current.getDate() }}
+  </div>
+</ng-template>
+<nz-date-picker [(ngModel)]="picker.data.date" (ngModelChange)="onChange($event)" *ngIf="picker.type==='date'"
+  [ngStyle]="{'width': picker.width}">
+</nz-date-picker>
